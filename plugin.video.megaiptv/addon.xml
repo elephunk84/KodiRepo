@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.megaiptv" name="Mega IPTV" version="3.0" provider-name="MikkM">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="script.module.addon.common" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="init.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en"></summary>
+	<website>https://megaiptv.co</website>
+	<email>support@megaiptv.co</email>
+    <platform>all</platform>
+  </extension>
+</addon>
