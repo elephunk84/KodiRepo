@@ -12,14 +12,15 @@ import os
 import errno
 
 USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3'
-base='http://iaincstott.co.uk/kodi/'
+base='http://iaincstott.co.uk/KodiRepo/'
+wizardFILE='http://iaincstott.co.uk/KodiRepo/wizard.txt'
 ADDON=xbmcaddon.Addon(id='plugin.program.iainstool')
 
 VERSION = "1.0.2"
 PATH = "Iain's Maintenance Tool"
 
 def CATEGORIES():
-    link = OPEN_URL('http://iaincstott.co.uk/kodi/wizard.txt').replace('\n','').replace('\r','')
+    link = OPEN_URL(wizardFILE).replace('\n','').replace('\r','')
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,fanart,description in match:
         addDir(name,url,1,iconimage,fanart,description)
@@ -32,7 +33,7 @@ def OPEN_URL(url):
     response = urllib2.urlopen(req)
     link=response.read()
     response.close()
- 
+
     return link
 
 
