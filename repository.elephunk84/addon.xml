@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.elephunk84" name="Elephunk84 Repository" version="1.0.5" provider-name="Iain Stott">
+	<extension point="xbmc.addon.repository" name="Elephunk84 Repository">
+		<info compressed="false">http://raw.github.com/elephunk84/KodiRepo/master/addons.xml</info>
+		<checksum>http://raw.github.com/elephunk84/KodiRepo/master/addons.xml.md5</checksum>
+		<datadir zip="true">http://raw.github.com/elephunk84/KodiRepo/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>New and old stuff from me, Get it here, TOTALXBMC DO NOT HAVE THE OK TO INCLUDE MY SHIT[CR]ON THE TOTALINSTALLER(Read hub installer).</summary>
+		<description>New and old stuff from me, Get it here, TOTALXBMC DO NOT HAVE THE OK TO INCLUDE MY SHIT[CR]ON THE TOTALINSTALLER(Read hub installer).</description>
+		<platform>all</platform>
+	</extension>
+</addon>
