@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.megaiptv" name="Mega IPTV" version="3.2" provider-name="MikkM">
+<addon id="plugin.video.megaiptv" name="Mega IPTV" version="3" provider-name="MikkM">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.addon.common" />
@@ -35,7 +35,7 @@
   </extension>
 </addon>
 
-<addon id="script.tvguide.fullscreen" name="TV Guide Fullscreen" version="0.0.352" provider-name="primaeval">
+<addon id="script.tvguide.fullscreen" name="TV Guide Fullscreen" version="0.0.351" provider-name="primaeval">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
         <import addon="script.module.simplejson" version="3.3.0"/>
@@ -74,7 +74,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.program.super.favourites" name="Super Favourites" version="1.0.57" provider-name="spoyser">
+<addon id="plugin.program.super.favourites" name="Super Favourites" version="1.0.59" provider-name="spoyser">
   <requires>
     <import addon="xbmc.python" version="2.14.0"/>
     <import addon="script.module.metahandler" optional="true" />
@@ -101,7 +101,7 @@
     <email>seanpoyser at gmail.com</email>
 
     <news>
-1.0.57: 29th May 2017
+1.0.59: 29th May 2017
     - 'Now playing' text now defined by SF due to skin variations
     </news>
 
