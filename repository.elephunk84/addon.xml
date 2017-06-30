@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.elephunk84" name="Elephunk84 Repository" version="1.0.5" provider-name="Iain Stott">
+<addon id="repository.elephunk84" name="Elephunk84 Repository" version=name="Elephunk84 Repository" version=\"(.+?)\""1.0.5"name="Elephunk84 Repository" version="1.0.6" provider-name="Iain Stott">
     <extension point="xbmc.addon.repository" name="Elephunk84 Repository">
         <info compressed="false">http://iaincstott.co.uk/KodiRepo/Addons/addons.xml</info>
         <checksum>http://iaincstott.co.uk/KodiRepo/Addons/addons.xml.md5</checksum>
