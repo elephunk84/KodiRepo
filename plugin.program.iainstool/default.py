@@ -16,7 +16,7 @@ base='http://iaincstott.co.uk/KodiRepo/'
 wizardFILE='http://iaincstott.co.uk/KodiRepo/wizard.txt'
 ADDON=xbmcaddon.Addon(id='plugin.program.iainstool')
 
-VERSION = "1.0.2"
+VERSION = "1.0.7"
 PATH = "Iain's Maintenance Tool"
 
 def CATEGORIES():
@@ -24,7 +24,7 @@ def CATEGORIES():
     match = re.compile('name="(.+?)".+?rl="(.+?)".+?mg="(.+?)".+?anart="(.+?)".+?escription="(.+?)"').findall(link)
     for name,url,iconimage,fanart,description in match:
         addDir(name,url,1,iconimage,fanart,description)
-    setView('movies', 'MAIN')
+    setView('info icons', 'MAIN')
 
 
 def OPEN_URL(url):
