@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <include name="Defs_WatchedOverlay">
+        <param name="pos" default="" />
+        <definition>
+            <control type="image">
+                <top>10</top>
+                <right>10</right>
+                <width>56</width>
+                <height>56</height>
+                <texture colordiffuse="ff000000">$VAR[Image_Overlay_Corner$PARAM[pos]]</texture>
+            </control>
+            <control type="image">
+                <top>12</top>
+                <right>12</right>
+                <width>28</width>
+                <height>28</height>
+                <texture>$VAR[Image_Overlay$PARAM[pos]]</texture>
+            </control>
+            <control type="label">
+                <top>12</top>
+                <right>12</right>
+                <width>28</width>
+                <height>28</height>
+                <font>Font-NumEpisodes</font>
+                <align>center</align>
+                <textcolor>ffcccccc</textcolor>
+                <label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+                <visible>Skin.HasSetting(Indicator.UnwatchedEpisodes)</visible>
+                <visible>Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+            </control>
+        </definition>
+    </include>
+    <include name="Defs_WatchedOverlay_Focus">
+        <param name="pos" default="" />
+        <param name="corner" default="true" />
+        <definition>
+            <control type="image">
+                <top>10</top>
+                <right>10</right>
+                <width>56</width>
+                <height>56</height>
+                <texture colordiffuse="$VAR[HighlightColor]">$VAR[Image_Overlay_Corner$PARAM[pos]]</texture>
+                <visible>$PARAM[corner]</visible>
+            </control>
+            <control type="image">
+                <top>12</top>
+                <right>12</right>
+                <width>28</width>
+                <height>28</height>
+                <texture colordiffuse="ff000000">$VAR[Image_Overlay$PARAM[pos]]</texture>
+            </control>
+            <control type="label">
+                <top>12</top>
+                <right>12</right>
+                <width>28</width>
+                <height>28</height>
+                <font>Font-NumEpisodes</font>
+                <align>center</align>
+                <textcolor>Selected</textcolor>
+                <label>$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+                <visible>Skin.HasSetting(Indicator.UnwatchedEpisodes)</visible>
+                <visible>Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Defs_DialogInfo_PosterLeft"><left>500</left></include>
+    <include name="Defs_DialogInfo_SquareLeft"><left>740</left></include>
+    <variable name="Defs_SpinnerTexture">
+        <value condition="!String.IsEmpty(Skin.String(SkinHelper.SpinnerTexturePath)) + !String.IsEmpty(Skin.String(SkinHelper.SpinnerTexture)) + !String.IsEqual(Skin.String(SkinHelper.SpinnerTexturePath),None)">$INFO[Skin.String(SkinHelper.SpinnerTexturePath)]</value>
+        <value>special://skin/extras/busy_spinners/Default</value>
+    </variable>
+    <include name="Defs_OptionButton_Basic">
+        <width>364</width>
+        <height>72</height>
+        <textcolor>ListLabel</textcolor>
+        <alttextcolor>Selected</alttextcolor>
+        <selectedcolor>Selected</selectedcolor>
+        <focusedcolor>Selected</focusedcolor>
+        <font>Font-ListInfo-Small</font>
+        <aligny>center</aligny>
+        <textoffsetx>bigpad</textoffsetx>
+        <radioposx>320</radioposx>
+    </include>
+    <include name="Defs_OptionButton">
+        <include>Defs_OptionButton_Basic</include>
+        <texturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</texturefocus>
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</alttexturefocus>
+    </include>
+    <include name="Defs_OptionButton2">
+        <include>Defs_OptionButton_Basic</include>
+        <texturenofocus colordiffuse="PosterBorder">common/white.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</texturefocus>
+        <alttexturenofocus colordiffuse="PosterBorder">common/white.png</alttexturenofocus>
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</alttexturefocus>
+    </include>
+    <include name="Defs_OptionButton2_Horz">
+        <width>460</width>
+        <radioposx>390</radioposx>
+        <include>Defs_OptionButton_Basic</include>
+        <texturenofocus colordiffuse="PosterBorder">common/white.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</texturefocus>
+        <alttexturenofocus colordiffuse="PosterBorder">common/white.png</alttexturenofocus>
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</alttexturefocus>
+    </include>
+    <include name="Defs_OptionButton3">
+        <width>auto</width>
+        <height>64</height>
+        <font>Font-ListInfo-Small-Bold</font>
+        <include>Defs_OptionButton_Basic</include>
+        <texturenofocus colordiffuse="PosterBorder">common/white.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</texturefocus>
+        <alttexturenofocus colordiffuse="PosterBorder">common/white.png</alttexturenofocus>
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</alttexturefocus>
+    </include>
+    <include name="Defs_OSDButton">
+        <width>230</width>
+        <height>48</height>
+        <textcolor>ListLabel</textcolor>
+        <selectedcolor>$VAR[HighlightColor]</selectedcolor>
+        <focusedcolor>$VAR[HighlightColor]</focusedcolor>
+        <font>Font-OSD</font>
+        <aligny>center</aligny>
+        <align>center</align>
+        <textoffsetx>bigpad</textoffsetx>
+        <texturenofocus>noop</texturenofocus>
+        <texturefocus>noop</texturefocus>
+        <alttexturenofocus>noop</alttexturenofocus>
+        <alttexturefocus>noop</alttexturefocus>
+    </include>
+    <include name="Defs_KeyboardButton">
+        <width>110</width>
+        <height>70</height>
+        <textcolor>ListLabel</textcolor>
+        <selectedcolor>Selected</selectedcolor>
+        <focusedcolor>Selected</focusedcolor>
+        <font>Font-ListInfo-Small</font>
+        <aligny>center</aligny>
+        <textoffsetx>bigpad</textoffsetx>
+        <radioposx>295</radioposx>
+        <texturenofocus colordiffuse="PosterBorder">common/white.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</texturefocus>
+        <alttexturenofocus colordiffuse="PosterBorder">common/white.png</alttexturenofocus>
+        <alttexturefocus colordiffuse="$VAR[HighlightColor]">common/white.png</alttexturefocus>
+    </include>
+    <variable name="Defs_Hub_Widget">
+        <value condition="Window.IsVisible(1101) + !String.IsEmpty(Skin.String(Widget.1101))">$INFO[Skin.String(Widget.1101)]</value>
+        <value condition="Window.IsVisible(1102) + !String.IsEmpty(Skin.String(Widget.1102))">$INFO[Skin.String(Widget.1102)]</value>
+        <value condition="Window.IsVisible(1103) + !String.IsEmpty(Skin.String(Widget.1103))">$INFO[Skin.String(Widget.1103)]</value>
+        <value condition="Window.IsVisible(1104) + !String.IsEmpty(Skin.String(Widget.1104))">$INFO[Skin.String(Widget.1104)]</value>
+        <value condition="Window.IsVisible(1105) + !String.IsEmpty(Skin.String(Widget.1105))">$INFO[Skin.String(Widget.1105)]</value>
+        <value condition="Window.IsVisible(1106) + !String.IsEmpty(Skin.String(Widget.1106))">$INFO[Skin.String(Widget.1106)]</value>
+        <value condition="Window.IsVisible(1107) + !String.IsEmpty(Skin.String(Widget.1107))">$INFO[Skin.String(Widget.1107)]</value>
+        <value condition="Window.IsVisible(1108) + !String.IsEmpty(Skin.String(Widget.1108))">$INFO[Skin.String(Widget.1108)]</value>
+        <value condition="Window.IsVisible(1109) + !String.IsEmpty(Skin.String(Widget.1109))">$INFO[Skin.String(Widget.1109)]</value>
+        <value condition="Window.IsVisible(1102)">special://skin/extras/playlists/RandomEpisodes.xsp</value>
+        <value>special://skin/extras/playlists/RandomMovies.xsp</value>
+    </variable>
+    <variable name="Defs_Hub_Widget_Target">
+        <value condition="Window.IsVisible(1101) + !String.IsEmpty(Skin.String(Widget.1101.Type))">$INFO[Skin.String(Widget.1101.Type)]</value>
+        <value condition="Window.IsVisible(1102) + !String.IsEmpty(Skin.String(Widget.1102.Type))">$INFO[Skin.String(Widget.1102.Type)]</value>
+        <value condition="Window.IsVisible(1103) + !String.IsEmpty(Skin.String(Widget.1103.Type))">$INFO[Skin.String(Widget.1103.Type)]</value>
+        <value condition="Window.IsVisible(1104) + !String.IsEmpty(Skin.String(Widget.1104.Type))">$INFO[Skin.String(Widget.1104.Type)]</value>
+        <value condition="Window.IsVisible(1105) + !String.IsEmpty(Skin.String(Widget.1105.Type))">$INFO[Skin.String(Widget.1105.Type)]</value>
+        <value condition="Window.IsVisible(1106) + !String.IsEmpty(Skin.String(Widget.1106.Type))">$INFO[Skin.String(Widget.1106.Type)]</value>
+        <value condition="Window.IsVisible(1107) + !String.IsEmpty(Skin.String(Widget.1107.Type))">$INFO[Skin.String(Widget.1107.Type)]</value>
+        <value condition="Window.IsVisible(1108) + !String.IsEmpty(Skin.String(Widget.1108.Type))">$INFO[Skin.String(Widget.1108.Type)]</value>
+        <value condition="Window.IsVisible(1109) + !String.IsEmpty(Skin.String(Widget.1109.Type))">$INFO[Skin.String(Widget.1109.Type)]</value>
+        <value>videos</value>
+    </variable>
+    <variable name="Defs_HomeTileColor">
+        <value condition="Skin.HasSetting(home.tilecolor) + !String.IsEmpty(Container(9000).ListItem.Property(tilecolor))">$INFO[Container(9000).ListItem.Property(tilecolor)]</value>
+        <value condition="Skin.HasSetting(home.tilecolor) + !String.IsEmpty(Container(211).ListItem.Property(tilecolor))">$INFO[Container(211).ListItem.Property(tilecolor)]</value>
+        <value>$VAR[HighlightColor]</value>
+    </variable>
+    <include name="Defs_SideLabel">
+        <param name="Label" default="$VAR[Label_SideLabel]" />
+        <definition>
+            <control type="label">
+                <right>-726</right>
+                <top>-10</top>
+                <height>64</height>
+                <width>700</width>
+                <align>left</align>
+                <angle>270</angle>
+                <font>Font-WidgetInfoTitle</font>
+                <label>[UPPERCASE]$PARAM[Label][/UPPERCASE]</label>
+                <animation effect="fade" start="100" end="33" condition="true">Conditional</animation>
+                <visible>Skin.HasSetting(global.eminenceonestyle)</visible>
+            </control>
+        </definition>
+    </include>
+    <include name="Defs_SideArrows">
+        <control type="image">
+            <centerleft>-24</centerleft>
+            <width>48</width>
+            <height>48</height>
+            <texture colordiffuse="ListLabel">common/48-arrow-left.png</texture>
+            <centertop>50%</centertop>
+            <animation effect="fade" start="100" end="33" condition="true">Conditional</animation>
+            <visible>!String.IsEqual(Window(home).Property(HubReturn),Home)</visible>
+            <visible>String.StartsWith(Window(home).Property(HubReturn),110)</visible>
+            <visible>![Window.IsVisible(1101) | Window.IsVisible(1102) | Window.IsVisible(1103) | Window.IsVisible(1104) | Window.IsVisible(1105) | Window.IsVisible(1106) | Window.IsVisible(1107) | Window.IsVisible(1108) | Window.IsVisible(1109)]</visible>
+            <visible>Skin.HasSetting(global.eminenceonestyle)</visible>
+        </control>
+        <control type="image">
+            <centerright>-24</centerright>
+            <width>48</width>
+            <height>48</height>
+            <texture colordiffuse="ListLabel" flipx="true">common/48-arrow-left.png</texture>
+            <centertop>50%</centertop>
+            <animation effect="fade" start="100" end="33" condition="true">Conditional</animation>
+            <visible>!String.IsEqual(Window(home).Property(HubReturn),Home)</visible>
+            <visible>!String.StartsWith(Window(home).Property(HubReturn),110)</visible>
+            <visible>!String.IsEmpty(Window(home).Property(NodeReturn))</visible>
+            <visible>Window.IsVisible(1101) | Window.IsVisible(1102) | Window.IsVisible(1103) | Window.IsVisible(1104) | Window.IsVisible(1105) | Window.IsVisible(1106) | Window.IsVisible(1107) | Window.IsVisible(1108) | Window.IsVisible(1109)</visible>
+            <visible>Skin.HasSetting(global.eminenceonestyle)</visible>
+        </control>
+    </include>
+    <include name="Defs_ViewBackground">
+        <left>sidepad</left>
+        <right>sidepad</right>
+        <top>top</top>
+        <height>height</height>
+        <include>Animation_Common</include>
+        <include condition="!Skin.HasSetting(global.widescreen)">Defs_SideLabel</include>
+        <include condition="!Skin.HasSetting(global.widescreen)">Defs_SideArrows</include>
+    </include>
+    <include name="Defs_InfoBackground">
+        <left>sidepad</left>
+        <right>sidepad</right>
+        <top>top</top>
+        <height>height</height>
+        <include>Animation_Info</include>
+        <include content="Defs_SideLabel">
+            <param name="Label" value="$LOCALIZE[19033]" />
+        </include>
+    </include>
+    <include name="Defs_Shortcuts_SetHub">
+        <control type="button" id="$PARAM[buttonid2]" description="Set HUB WIDGET">
+            <width>100%</width>
+            <label>31097</label>
+            <label2>$INFO[Skin.String(Widget.$PARAM[hubid].Label)]</label2>
+            <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+            <visible>String.IsEqual(Container(211).ListItem.Label2,Hub $PARAM[hubid]) | String.IsEqual(Container(211).ListItem.Property(Path),ActivateWindow($PARAM[hubid]))</visible>
+            <include>Defs_OptionButton</include>
+            <onclick>RunScript(script.skinshortcuts,type=widgets&amp;grouping=widget&amp;skinWidgetPath=Widget.$PARAM[hubid]&amp;skinWidgetName=Widget.$PARAM[hubid].Label&amp;skinWidgetTarget=Widget.$PARAM[hubid].Type)</onclick>
+        </control>
+        <control type="button" id="$PARAM[buttonid1]" description="Set HUB">
+            <width>100%</width>
+            <label>31096</label>
+            <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+            <include>Defs_OptionButton</include>
+            <visible>String.IsEqual(Container(211).ListItem.Label2,Hub $PARAM[hubid]) | String.IsEqual(Container(211).ListItem.Property(Path),ActivateWindow($PARAM[hubid]))</visible>
+            <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=x$PARAM[hubid])</onclick>
+        </control>
+    </include>
+    <variable name="Defs_HomeWidget_Content">
+        <value condition="Player.HasVideo + Skin.HasSetting(background.showvideo)">noop</value>
+        <value condition="String.IsEqual(Container(9000).ListItem.Property(widget),Weather) + System.HasAddon(resource.images.weatherfanart.multi)">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,]/</value>
+        <value condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetPath)) + !Skin.HasSetting(widgets.persistent)">$INFO[Container(9000).ListItem.Property(widgetPath)]</value>
+        <value condition="!String.IsEmpty(Container(9000).ListItem.Property(Background))">noop</value>
+        <value condition="[String.IsEqual(Skin.String(home.fallbackwidget),Weather) | String.IsEqual(Skin.String(home.fallbackwidget.node),Weather)] + System.HasAddon(resource.images.weatherfanart.multi)">$INFO[Window(Weather).Property(Current.FanartCode),resource://resource.images.weatherfanart.multi/,]/</value>
+        <value condition="!String.IsEmpty(Skin.String(home.fallbackwidget))">$INFO[Skin.String(home.fallbackwidget)]</value>
+        <value>special://skin/extras/playlists/RandomMovies.xsp</value>
+    </variable>
+    <variable name="Defs_HomeWidget_Target">
+        <value condition="!String.IsEmpty(Container(9000).ListItem.Property(widgetTarget))">$INFO[Container(9000).ListItem.Property(widgetTarget)]</value>
+        <value condition="!String.IsEmpty(Skin.String(home.fallbackwidget.target))">$INFO[Skin.String(home.fallbackwidget.target)]</value>
+        <value>videos</value>
+    </variable>
+
+    <include name="Defs_SettingsScreen">
+        <left>sidepad</left>
+        <right>sidepad</right>
+        <top>top</top>
+        <height>height</height>
+        <animation effect="slide" tween="quadratic" easing="out" time="200" start="1920" end="0" condition="!Window.Previous(Settings.xml) + !Window.Previous(SettingsCategory.xml) + !Window.Previous(SkinSettings.xml) + !Window.Previous(SettingsSystemInfo.xml) + !Window.Previous(SettingsProfile.xml)">WindowOpen</animation>
+        <animation effect="slide" tween="quadratic" easing="in" time="200" end="1920" start="0" condition="!Window.Next(Settings.xml) + !Window.Next(SettingsCategory.xml) + !Window.Next(SkinSettings.xml) + !Window.Next(SettingsSystemInfo.xml) + !Window.Next(SettingsProfile.xml)">WindowClose</animation>
+        <include condition="!Skin.HasSetting(global.widescreen)">Defs_SideLabel</include>
+        <include condition="!Skin.HasSetting(global.widescreen)">Defs_SideArrows</include>
+        <include content="Object_Headline">
+            <param name="label" value="$LOCALIZE[5]" />
+        </include>
+        
+        <control type="panel" id="9000">
+            <left>bigpad</left>
+            <right>0</right>
+            <top>bigpad</top>
+            <height>730</height>
+            <orientation>vertical</orientation>
+            <itemlayout height="350" width="settingsitemw">
+                <control type="group">
+                    <top>0</top>
+                    <bottom>bigpad</bottom>
+                    <left>0</left>
+                    <right>bigpad</right>
+                    <include>Object_Background</include>
+                </control>
+                <control type="image">
+                    <top>50</top>
+                    <left>0</left>
+                    <right>20</right>
+                    <height>128</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture colordiffuse="ListLabel">$INFO[ListItem.Icon]</texture>
+                </control>
+                <control type="label">
+                    <left>30</left>
+                    <right>50</right>
+                    <height>50</height>
+                    <bottom>50</bottom>
+                    <textcolor>ListLabel</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </itemlayout>
+            <focusedlayout height="350" width="settingsitemw">
+                <control type="group">
+                    <top>0</top>
+                    <bottom>bigpad</bottom>
+                    <left>0</left>
+                    <right>bigpad</right>
+                    <include>Object_Background</include>
+                    <control type="image">
+                        <texture colordiffuse="$VAR[HighlightColor]">common/white.png</texture>
+                    </control>
+                </control>
+                <control type="image">
+                    <top>50</top>
+                    <left>0</left>
+                    <right>20</right>
+                    <height>128</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture colordiffuse="Selected">$INFO[ListItem.Icon]</texture>
+                </control>
+                <control type="label">
+                    <left>30</left>
+                    <right>50</right>
+                    <height>50</height>
+                    <bottom>50</bottom>
+                    <textcolor>Selected</textcolor>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+            </focusedlayout>
+            <content>
+                <!-- Row 1 -->
+                <item id="1">
+                    <description>Interface</description>
+                    <label>14206</label>
+                    <onclick>activatewindow(InterfaceSettings)</onclick>
+                    <icon>special://skin/extras/icons/skinsettings.png</icon>
+                </item>
+                <item id="5">
+                    <description>Library</description>
+                    <label>14202</label>
+                    <onclick>activatewindow(MediaSettings)</onclick>
+                    <icon>special://skin/extras/icons/tags.png</icon>
+                </item>
+                <item id="6">
+                    <description>Player</description>
+                    <label>14200</label>
+                    <onclick>activatewindow(PlayerSettings)</onclick>
+                    <icon>special://skin/extras/icons/equalizer.png</icon>
+                </item>
+                <item id="9">
+                    <description>System</description>
+                    <label>13000</label>
+                    <onclick>activatewindow(SystemSettings)</onclick>
+                    <icon>special://skin/extras/icons/configure.png</icon>
+                </item>
+                <item id="2">
+                    <description>Skin Settings</description>
+                    <label>20077</label>
+                    <onclick>activatewindow(skinsettings)</onclick>
+                    <!-- <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick> -->
+                    <icon>special://skin/extras/icons/paintbrush.png</icon>
+                </item>
+
+                <!-- Row 2 -->
+
+                <item id="10">
+                    <description>Addons</description>
+                    <label>24001</label>
+                    <onclick>activatewindow(AddonBrowser)</onclick>
+                    <icon>special://skin/extras/icons/addons.png</icon>
+                </item>
+                <item id="3">
+                    <description>Profiles</description>
+                    <label>13200</label>
+                    <onclick>activatewindow(Profiles)</onclick>
+                    <icon>special://skin/extras/icons/actor.png</icon>
+                </item>
+                <item id="8">
+                    <description>PVR Settings</description>
+                    <label>19191</label>
+                    <onclick>activatewindow(pvrsettings)</onclick>
+                    <icon>special://skin/extras/icons/livetv.png</icon>
+                </item>
+                <item id="12">
+                    <description>Services</description>
+                    <label>14036</label>
+                    <onclick>activatewindow(servicesettings)</onclick>
+                    <icon>special://skin/extras/icons/network.png</icon>
+                </item>
+                <item id="11">
+                    <description>System Info</description>
+                    <label>130</label>
+                    <onclick>activatewindow(7)</onclick>
+                    <icon>special://skin/extras/icons/sysinfo.png</icon>
+                </item>
+
+            </content>
+        </control>
+    </include>
+</includes>
