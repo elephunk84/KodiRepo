@@ -155,8 +155,6 @@ def doZipfile(outputFile, includeSettings=True):
 
     relroot = os.path.abspath(os.path.join(source, os.pardir))
 
-    ignore = ['c', 'downloads']
-
     for root, dirs, files in os.walk(source):
 
         if zip == None:
@@ -168,7 +166,7 @@ def doZipfile(outputFile, includeSettings=True):
         local = local[-1]
 
         # add directory (this is needed for empty dirs)
-        if local.lower() in ignore:
+        if local.lower() == 'c':
             continue
         zip.write(root, local)
 
@@ -273,8 +271,7 @@ def getFile(title, ext):
 
 
 def getFolder(title):
-    root   = xbmc.translatePath('special://userdata').split(os.sep, 1)[0] + os.sep
-    folder = xbmcgui.Dialog().browse(3, title, 'files', '', False, False, root)
+    folder = xbmcgui.Dialog().browse(3, title, 'files', '', False, False, '')
 
     return xbmc.translatePath(folder)
 

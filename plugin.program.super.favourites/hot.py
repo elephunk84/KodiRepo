@@ -21,6 +21,4 @@
 import xbmc
 import utils
 
-print "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
-print 'RunAddon(%s)' % utils.ADDONID
 xbmc.executebuiltin('RunAddon(%s)' % utils.ADDONID)

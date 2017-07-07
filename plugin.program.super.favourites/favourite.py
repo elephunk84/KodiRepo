@@ -18,35 +18,26 @@
 #  http://www.gnu.org/copyleft/gpl.html
 #
 
-import xbmc
-
 import os
+import xbmc
 import re
-import urllib
+import re
 
 import utils
+
 import sfile
 
-HOME_INDICATOR = 'HOME:'
+
 
 SHOWUNAVAIL = utils.ADDON.getSetting('SHOWUNAVAIL') == 'true'
 
 
-def getFavourites(file, limit=10000, validate=True, superSearch=False, chooser=False):
+def getFavourites(file, limit=10000, validate=True, superSearch=False):
     import xbmcgui
-
-    prefix = ''
-    if not chooser:
-        prefix = HOME_INDICATOR if xbmcgui.getCurrentWindowId() == 10000 else ''    
 
     xml  = '<favourites></favourites>'
     if sfile.exists(file):
         xml = sfile.read(file)
-
-    #fix files due to previous bug
-    if HOME_INDICATOR in xml:
-        xml = xml.replace(HOME_INDICATOR, '')
-        sfile.write(file, xml)
 
     items = []
 
@@ -90,10 +81,7 @@ def getFavourites(file, limit=10000, validate=True, superSearch=False, chooser=F
                     win  = xbmcgui.getCurrentWindowId()
                     cmd  = updateSFOption(cmd, 'winID', win)
 
-            name = resolve(name)
-            cmd  = patch(cmd)
-            cmd  = resolve(cmd)
-            cmd  = prefix + cmd
+            cmd = patch(cmd)
 
             items.append([name, thumb, cmd])
             if len(items) > limit:
@@ -102,32 +90,14 @@ def getFavourites(file, limit=10000, validate=True, superSearch=False, chooser=F
     return items
 
 
-def resolve(text):
-    try:
-        if '$LOCALIZE' in text:
-            id   = int(re.compile('\$LOCALIZE\[(.+?)\]').search(text).group(1))
-            text = text.replace('$LOCALIZE[%d]' % id, xbmc.getLocalizedString(id))
-            return resolve(text)
-
-        if '$INFO' in text:
-            str  = re.compile('\$INFO\[(.+?)\]').search(text).group(1)
-            text = text.replace('$INFO[%s]' % str, xbmc.getInfoLabel(str))
-            return resolve(text)
-
-    except:
-        pass
-
-    return text
-
-
 def patch(cmd):
     cmd = cmd.replace('&quot;,return', 'SF_PATCHING1')
     cmd = cmd.replace('",return',      'SF_PATCHING2')
 
-    cmd = cmd.replace(',return',  '')
+    cmd = cmd.replace(',return'      ,  '')
 
-    cmd = cmd.replace('SF_PATCHING1' , '&quot;,return')
-    cmd = cmd.replace('SF_PATCHING2' , '",return')
+    cmd = cmd.replace('SF_PATCHING1'  , '&quot;,return')
+    cmd = cmd.replace('SF_PATCHING2'  , '",return')
 
     return cmd
 
@@ -152,13 +122,6 @@ def upgradeCmd(cmd):
     return cmd
 
 
-def removeHome(cmd):
-    while cmd.startswith(HOME_INDICATOR):
-        cmd = cmd[len(HOME_INDICATOR):]
-    return cmd
-
-
-
 def writeFavourites(file, faves):
     kodiFile = os.path.join('special://profile', utils.FILENAME)
     isKodi = xbmc.translatePath(file) == xbmc.translatePath(kodiFile)
@@ -172,8 +135,6 @@ def writeFavourites(file, faves):
             name  = utils.escape(fave[0])
             thumb = utils.escape(fave[1])
             cmd   = utils.escape(fave[2])
-
-            cmd = removeHome(cmd)
 
             if isKodi and cmd.lower().startswith('playmedia'):
                 cmd = removeSFOptions(cmd)
@@ -243,7 +204,8 @@ def isValid(cmd):
 def updateFave(file, update):
     cmd = update[2]
 
-    fave, index, nFaves = findFave(file, cmd) 
+    fave, index, nFaves = findFave(file, cmd)
+    
    
     removeFave(file, cmd)
     return insertFave(file, update, index)
@@ -251,7 +213,7 @@ def updateFave(file, update):
 
 def replaceFave(file, update, oldCmd):
     fave, index, nFaves = findFave(file, oldCmd)
-    
+
     if index < 0:
         return addFave(file, update)
    
@@ -354,45 +316,18 @@ def removeFave(file, cmd):
     return True
 
 
-def _shiftUpIndex(index, max, faves):
-    index -= 1
-    if index < 0:
-        index = max
-    
-    cmd = faves[index][2]
-    if isValid(cmd):
-        return index
-
-    return _shiftUpIndex(index, max, faves)
-
-
-def _shiftDownIndex(index, max, faves):
-    index += 1
-    if index > max:
-        index = 0
-
-    cmd = faves[index][2]
-    if isValid(cmd):
-        return index
-
-    return _shiftDownIndex(index, max, faves)
-
-
 def shiftFave(file, cmd, up):
-    faves = getFavourites(file, validate=True)
-    if len(faves) < 2:
-        return
-
-    faves = getFavourites(file, validate=False)
-
     fave, index, nFaves = findFave(file, cmd)
 
     max = nFaves - 1
-
     if up:
-        index = _shiftUpIndex(index, max, faves)
-    else:
-        index = _shiftDownIndex(index, max, faves)
+        index -= 1
+        if index < 0:
+            index = max
+    else: #down
+        index += 1
+        if index > max:
+            index = 0
 
     removeFave(file, cmd)
     return insertFave(file, fave, index)
@@ -462,6 +397,8 @@ def updateSFOptions(cmd, options):
     if len(options) == 0:
         return cmd
 
+    import urllib 
+
     hasReturn = False
     if cmd.endswith(',return)'):
         hasReturn = True
@@ -494,12 +431,12 @@ def updateSFOptions(cmd, options):
 
 
 def getSFOptions(cmd):
+    import urllib 
+
     try:    options = urllib.unquote_plus(re.compile('sf_options=(.+?)_options_sf').search(cmd).group(1))
     except: return {}
 
-    params = get_params(options)
-
-    return params
+    return get_params(options)
 
 
 def removeSFOptions(cmd):
@@ -512,7 +449,7 @@ def removeSFOptions(cmd):
     cmd = re.sub('&sf_options=(.+?)_options_sf",return\)', '",return)', cmd)
     cmd = re.sub('&sf_options=(.+?)_options_sf',    '',                 cmd)
 
-    #cmd = cmd.replace('/")', '")')
+    cmd = cmd.replace('/")', '")')
 
     return cmd
 
@@ -528,46 +465,22 @@ def getOption(cmd, option):
     except: return ''
 
 
-def fixCase(cmd):
-    cmd = cmd.replace('activatewindow',       'ActivateWindow')
-    cmd = cmd.replace('runscript',            'RunScript')
-    cmd = cmd.replace('playmedia',            'playmedia')
-    cmd = cmd.replace('startandroidactivity', 'StartAndroidActivity')
-    cmd = cmd.replace('showpicture',          'ShowPicture')
-
-    return cmd
-
-
-def isKodiCommand(cmd):
-    cmd = cmd.lower()
-    commands = []
-    commands.append('activatewindow')
-    commands.append('runscript')
-    commands.append('playmedia')
-    commands.append('startandroidactivity')
-    commands.append('showpicture')
-
-    for command in commands:
-        if cmd.startswith(command):
-            utils.DialogOK("FLLY FORMED")
-            return True
-
-    return False
-
-
-def get_params(path):
-    params = {}
-    #path   = path.split('?', 1)[-1]
-    pairs  = path.split('&')
-
-    for pair in pairs:
-        split = pair.split('=')
-        if len(split) > 1:
-            #params[split[0]] = urllib.unquote_plus(split[1])
-            params[split[0]] = split[1]
-
-    return params
-
+def get_params(p):
+    param=[]
+    paramstring=p
+    if len(paramstring)>=2:
+        params=p
+        cleanedparams=params.replace('?','')
+        if (params[len(params)-1]=='/'):
+           params=params[0:len(params)-2]
+        pairsofparams=cleanedparams.split('&')
+        param={}
+        for i in range(len(pairsofparams)):
+            splitparams={}
+            splitparams=pairsofparams[i].split('=')
+            if (len(splitparams))==2:
+                param[splitparams[0]]=splitparams[1]
+    return param
 
 
 #used only during upgrade process
@@ -590,7 +503,8 @@ def _removeFanart(cmd):
 #used only during upgrade process
 def _getFanart(cmd):
     cmd = cmd.replace(',return', '')
- 
+
+    import urllib 
     try:    return urllib.unquote_plus(re.compile('sf_fanart=(.+?)_"\)').search(cmd).group(1))
     except: pass
 

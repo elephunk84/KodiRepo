@@ -30,7 +30,6 @@ import utils
 
 def getResponse(url, size, referer, agent, cookie):
     try:
-        #url = urllib.quote_plus(url)
         req = urllib2.Request(url)
 
         if len(referer) > 0:
@@ -44,22 +43,12 @@ def getResponse(url, size, referer, agent, cookie):
 
         if size > 0:
             size = int(size)
-            req.add_header('Range', 'bytes=%d-' % size)
+            req.add_header('Range',   'bytes=%d-' % size)
 
         resp = urllib2.urlopen(req, timeout=10)
-        return resp, ''
+        return resp
     except Exception, e:
-        return None, str(e)
-
-
-def getRandomUserAgent():
-    import random
-    agents = []  
-    agents.append('Mozilla/5.0 (Android; Mobile; rv:%d.0) Gecko/%d.0 Firefox/%d.0')
-
-    agent = random.choice(agents) % (random.randint(10, 40), random.randint(10, 40), random.randint(10, 40))
-
-    return agent
+        return None
 
 
 def download(url, dest, title=None, referer=None, agent=None, cookie=None, quiet=False):
@@ -67,11 +56,10 @@ def download(url, dest, title=None, referer=None, agent=None, cookie=None, quiet
         title  = 'Kodi Download'
 
     if not referer:
-        items   = url.split('/', 3)       
-        referer = items[0] + '//' + items[2]
+        referer  = ''
 
     if not agent:
-        agent  = getRandomUserAgent()
+        agent  = ''
 
     if not cookie:
         cookie  = ''
@@ -86,6 +74,7 @@ def download(url, dest, title=None, referer=None, agent=None, cookie=None, quiet
 
     script = inspect.getfile(inspect.currentframe())
     cmd    = 'RunScript(%s, %s, %s, %s, %s, %s, %s, %s)' % (script, url, dest, title, referer, agent, cookie, quiet)
+
     xbmc.executebuiltin(cmd)
 
 
@@ -111,7 +100,7 @@ def done(title, dest, downloaded):
 
 def doDownload(url, dest, title, referer='', agent='', cookie='', quiet=False):
     #unquote parameters
-    url     = urllib.unquote_plus(url).split('|')[0]
+    url     = urllib.unquote_plus(url)
     dest    = urllib.unquote_plus(dest)
     title   = urllib.unquote_plus(title)
     referer = urllib.unquote_plus(referer)
@@ -120,10 +109,10 @@ def doDownload(url, dest, title, referer='', agent='', cookie='', quiet=False):
 
     file = dest.rsplit(os.sep, 1)[-1]
 
-    resp, error = getResponse(url, 0, referer, agent, cookie)
+    resp = getResponse(url, 0, referer, agent, cookie)
 
     if not resp:
-        xbmcgui.Dialog().ok(title, dest, 'Download failed', error)
+        xbmcgui.Dialog().ok(title, dest, 'Download failed', 'No response from server')
         return
 
     try:    content = int(resp.headers['Content-Length'])
@@ -169,7 +158,7 @@ def doDownload(url, dest, title, referer='', agent='', cookie='', quiet=False):
         percent = min(100 * downloaded / content, 100)
         if percent >= notify:
             if not quiet:
-                xbmc.executebuiltin( "XBMC.Notification(%s,%s,%i)" % ( title.replace(',', '') + ' - Download Progress - ' + str(percent)+'%', dest, 10000))
+                xbmc.executebuiltin( "XBMC.Notification(%s,%s,%i)" % ( title + ' - Download Progress - ' + str(percent)+'%', dest, 10000))
 
             utils.log('Download percent : %s %s %dMB downloaded : %sMB File Size : %sMB' % (str(percent)+'%', dest, mb, downloaded / 1000000, content / 1000000))
 
@@ -244,7 +233,7 @@ def doDownload(url, dest, title, referer='', agent='', cookie='', quiet=False):
                 chunks  = []
                 #create new response
                 utils.log('Download resumed (%d) %s' % (resume, dest))
-                resp, error = getResponse(url, total, referer, agent, cookie)
+                resp = getResponse(url, total, referer, agent, cookie)
             else:
                 #use existing response
                 pass

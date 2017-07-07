@@ -21,17 +21,13 @@
 
 
 import xbmcvfs
-import os
 
 
 def exists(filename):
     if xbmcvfs.exists(filename):
         return True
- 
-    if xbmcvfs.exists(filename+os.sep):
-        return True
 
-    return os.path.exists(filename)
+    return xbmcvfs.exists(filename + '/')
 
 
 def isfile(filename):
@@ -44,20 +40,12 @@ def isfile(filename):
     
 
 def isdir(folder):
-    import utils
-    if folder.endswith('\\') or folder.endswith('/'):
-        folder = folder[:-1]
+    if not exists(folder):
+        #raise Exception('sfile.isdir error %s does not exists' % folder)
+        return False
 
     import stat
-    if stat.S_ISDIR(xbmcvfs.Stat(folder).st_mode()):
-        return True
-
-    import xbmc
-    folder = xbmc.translatePath(folder)
-    if folder.endswith('\\') or folder.endswith('/'):
-        folder = folder[:-1]
-
-    return stat.S_ISDIR(xbmcvfs.Stat(xbmc.translatePath(folder)).st_mode())
+    return stat.S_ISDIR(xbmcvfs.Stat(folder).st_mode())
    
 
 def file(filename, type):
@@ -75,30 +63,11 @@ def read(filename):
     return content
 
 
-def write(filename, content):
-    f = file(filename, 'wb')
-    f.write(content)
-    f.close()
-
-
 def readlines(filename):
     lines = read(filename)
     lines = lines.replace('\r', '')
     lines = lines.split('\n')
     return lines
-
-
-def writelines(filename, lines):
-    f = file(filename, 'w')
-    first = True
-    for line in lines:
-        if not first:
-            f.write('\n')
-        else:
-            first = False
-        f.write(line)        
-    f.close()
-
 
 
 def walk(folder):
@@ -146,8 +115,8 @@ def rmtree(folder):
 def copytree(src, dst):
     import os
 
-    #if exists(dst):
-    #    rmtree(dst)
+    if exists(dst):
+        rmtree(dst)
 
     makedirs(dst)
 

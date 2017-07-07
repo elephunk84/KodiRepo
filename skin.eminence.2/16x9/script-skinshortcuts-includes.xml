@@ -3,12 +3,15 @@
 	<include name="skinshortcuts-mainmenu">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<label>$LOCALIZE[20342]</label>
+			<label>Movies</label>
 			<label2>Hub 1101</label2>
 			<icon>special://skin/extras/icons/film.png</icon>
 			<thumb />
-			<property name="labelID">20342</property>
-			<property name="defaultID">movies</property>
+			<property name="labelID">movies</property>
+			<property name="defaultID">31093</property>
+			<property name="translatedPath">ActivateWindow(1101)</property>
+			<property name="background">http://iaincstott.co.uk/KodiRepo/Images/Movies/</property>
+			<property name="backgroundName">http://iaincstott.co.uk/KodiRepo/Images/Movies/</property>
 			<onclick condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</onclick>
 			<onclick condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</onclick>
 			<onclick condition="Window.IsActive(PlayerControls.xml)">Close</onclick>
@@ -16,9 +19,9 @@
 			<property name="path">ActivateWindow(1101)</property>
 			<property name="list">1101</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="submenuVisibility">num-20342</property>
+			<property name="submenuVisibility">movies</property>
 			<property name="group">mainmenu</property>
-			<property name="hasSubmenu">True</property>
+			<property name="hasSubmenu">False</property>
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
@@ -28,6 +31,8 @@
 			<thumb />
 			<property name="labelID">tvshows</property>
 			<property name="defaultID">tvshows</property>
+			<property name="background">http://iaincstott.co.uk/KodiRepo/Images/TVShows/</property>
+			<property name="backgroundName">http://iaincstott.co.uk/KodiRepo/Images/TVShows/</property>
 			<onclick condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</onclick>
 			<onclick condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</onclick>
 			<onclick condition="Window.IsActive(PlayerControls.xml)">Close</onclick>
@@ -37,36 +42,105 @@
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
 			<property name="submenuVisibility">tvshows</property>
 			<property name="group">mainmenu</property>
-			<property name="hasSubmenu">True</property>
+			<property name="hasSubmenu">False</property>
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<label>$LOCALIZE[31015]</label>
-			<label2>Common Shortcut</label2>
+			<label>Live TV</label>
+			<label2>Hub 1103</label2>
 			<icon>special://skin/extras/icons/livetv.png</icon>
-			<thumb />
-			<property name="labelID">31015</property>
-			<property name="defaultID">livetv</property>
-			<visible>System.HasPVRAddon</visible>
+			<thumb>special://skin/extras/icons/tv.png</thumb>
+			<property name="labelID">livetv</property>
+			<property name="defaultID">31123</property>
+			<property name="translatedPath">ActivateWindow(1103)</property>
+			<property name="background">http://iaincstott.co.uk/KodiRepo/Images/LiveTV/</property>
+			<property name="backgroundName">http://iaincstott.co.uk/KodiRepo/Images/LiveTV/</property>
 			<onclick condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</onclick>
 			<onclick condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</onclick>
 			<onclick condition="Window.IsActive(PlayerControls.xml)">Close</onclick>
-			<onclick>ActivateWindow(TVChannels)</onclick>
-			<property name="path">ActivateWindow(TVChannels)</property>
-			<property name="list">TVChannels</property>
+			<onclick>ActivateWindow(1103)</onclick>
+			<property name="path">ActivateWindow(1103)</property>
+			<property name="list">1103</property>
 			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="submenuVisibility">num-31015</property>
+			<property name="submenuVisibility">livetv</property>
 			<property name="group">mainmenu</property>
-			<property name="hasSubmenu">True</property>
+			<property name="hasSubmenu">False</property>
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
+			<label>Kids Zone</label>
+			<label2>Hub 1104</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">kidszone</property>
+			<property name="defaultID">31123</property>
+			<property name="translatedPath">ActivateWindow(1104)</property>
+			<property name="background">http://iaincstott.co.uk/KodiRepo/Images/Kids/</property>
+			<property name="backgroundName">http://iaincstott.co.uk/KodiRepo/Images/Kids/</property>
+			<onclick condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</onclick>
+			<onclick condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</onclick>
+			<onclick condition="Window.IsActive(PlayerControls.xml)">Close</onclick>
+			<onclick>ActivateWindow(1104)</onclick>
+			<property name="path">ActivateWindow(1104)</property>
+			<property name="list">1104</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">kidszone</property>
+			<property name="group">mainmenu</property>
+			<property name="hasSubmenu">False</property>
+		</item>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<label>Sports</label>
+			<label2>Hub 1105</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">sports</property>
+			<property name="defaultID">31123</property>
+			<property name="translatedPath">ActivateWindow(1105)</property>
+			<property name="background">http://iaincstott.co.uk/KodiRepo/Images/Sports/</property>
+			<property name="backgroundName">http://iaincstott.co.uk/KodiRepo/Images/Sports/</property>
+			<onclick condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</onclick>
+			<onclick condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</onclick>
+			<onclick condition="Window.IsActive(PlayerControls.xml)">Close</onclick>
+			<onclick>ActivateWindow(1105)</onclick>
+			<property name="path">ActivateWindow(1105)</property>
+			<property name="list">1105</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">sports</property>
+			<property name="group">mainmenu</property>
+			<property name="hasSubmenu">False</property>
+		</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<label>Documentaries</label>
+			<label2>Custom item</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/bookmarks.png</thumb>
+			<property name="labelID">documentaries</property>
+			<property name="defaultID" />
+			<property name="background">http://iaincstott.co.uk/KodiRepo/Images/backgrounds_videogenre/document%c3%a1rio.jpg</property>
+			<property name="backgroundName">http://iaincstott.co.uk/KodiRepo/Images/backgrounds_videogenre/document%c3%a1rio.jpg</property>
+			<onclick condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</onclick>
+			<onclick condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</onclick>
+			<onclick condition="Window.IsActive(PlayerControls.xml)">Close</onclick>
+			<onclick>ActivateWindow(1106)</onclick>
+			<property name="path">ActivateWindow(1106)</property>
+			<property name="list">1106</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">documentaries</property>
+			<property name="group">mainmenu</property>
+			<property name="hasSubmenu">False</property>
+		</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
 			<label>$LOCALIZE[0]</label>
 			<label2>Common Shortcut</label2>
 			<icon>special://skin/extras/icons/addons.png</icon>
-			<thumb />
+			<thumb>special://skin/extras/icons/settings (1).png</thumb>
 			<property name="labelID">0</property>
 			<property name="defaultID">programs</property>
+			<property name="background">http://iaincstott.co.uk/KodiRepo/Images/Programs/programs%20%285%29.jpg</property>
+			<property name="backgroundName">http://iaincstott.co.uk/KodiRepo/Images/Programs/programs%20%285%29.jpg</property>
 			<onclick condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</onclick>
 			<onclick condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</onclick>
 			<onclick condition="Window.IsActive(PlayerControls.xml)">Close</onclick>
@@ -78,14 +152,16 @@
 			<property name="group">mainmenu</property>
 			<property name="hasSubmenu">False</property>
 		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
 			<label>$LOCALIZE[10004]</label>
 			<label2>Common Shortcut</label2>
 			<icon>special://skin/extras/icons/settings.png</icon>
 			<thumb />
 			<property name="labelID">settings</property>
 			<property name="defaultID">settings</property>
+			<property name="background">http://iaincstott.co.uk/KodiRepo/Images/Addons/addons%20%281%29.jpg</property>
+			<property name="backgroundName">http://iaincstott.co.uk/KodiRepo/Images/Addons/addons%20%281%29.jpg</property>
 			<onclick condition="String.StartsWith(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(FO9001,2,home)</onclick>
 			<onclick condition="String.Contains(Container(9000).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9000).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9000).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9000).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9000).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9000).ListItem.Property(list)],home)</onclick>
 			<onclick condition="Window.IsActive(PlayerControls.xml)">Close</onclick>
@@ -102,262 +178,9 @@
 	<include name="skinshortcuts-submenu">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[20386]</label>
-			<label2>$ADDON[script.skinshortcuts 32014]</label2>
-			<icon>special://skin/extras/icons/recentlyadded.png</icon>
-			<thumb />
-			<property name="labelID">20386</property>
-			<property name="defaultID">20386</property>
-			<onclick>ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)</property>
-			<property name="list">videodb://recentlyaddedmovies/</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[20434]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/sets.png</icon>
-			<thumb />
-			<property name="labelID">20434</property>
-			<property name="defaultID">20434</property>
-			<visible>[Library.HasContent(MovieSets)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/sets/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/sets/,return)</property>
-			<property name="list">videodb://movies/sets/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[369]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/film.png</icon>
-			<thumb />
-			<property name="labelID">369</property>
-			<property name="defaultID">369</property>
-			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/titles/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/titles/,return)</property>
-			<property name="list">videodb://movies/titles/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[135]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/genre.png</icon>
-			<thumb />
-			<property name="labelID">135</property>
-			<property name="defaultID">135</property>
-			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/genres/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/genres/,return)</property>
-			<property name="list">videodb://movies/genres/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[562]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/year.png</icon>
-			<thumb />
-			<property name="labelID">562</property>
-			<property name="defaultID">562</property>
-			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/years/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/years/,return)</property>
-			<property name="list">videodb://movies/years/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[344]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/artist.png</icon>
-			<thumb />
-			<property name="labelID">344</property>
-			<property name="defaultID">344</property>
-			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/actors/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/actors/,return)</property>
-			<property name="list">videodb://movies/actors/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[20387]</label>
-			<label2>$ADDON[script.skinshortcuts 32014]</label2>
-			<icon>special://skin/extras/icons/recentlyadded.png</icon>
-			<thumb />
-			<property name="labelID">20387</property>
-			<property name="defaultID">20387</property>
-			<onclick>ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</property>
-			<property name="list">videodb://recentlyaddedepisodes/</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[369]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">369</property>
-			<property name="defaultID">369</property>
-			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/titles/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/titles/,return)</property>
-			<property name="list">videodb://tvshows/titles/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[135]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/genre.png</icon>
-			<thumb />
-			<property name="labelID">135</property>
-			<property name="defaultID">135</property>
-			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/genres/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/genres/,return)</property>
-			<property name="list">videodb://tvshows/genres/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[562]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/year.png</icon>
-			<thumb />
-			<property name="labelID">562</property>
-			<property name="defaultID">562</property>
-			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/years/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/years/,return)</property>
-			<property name="list">videodb://tvshows/years/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[344]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/artist.png</icon>
-			<thumb />
-			<property name="labelID">344</property>
-			<property name="defaultID">344</property>
-			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/actors/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/actors/,return)</property>
-			<property name="list">videodb://tvshows/actors/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[22020]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">22020</property>
-			<property name="defaultID">22020</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31015)</visible>
-			<onclick>ActivateWindow(TVGuide)</onclick>
-			<property name="path">ActivateWindow(TVGuide)</property>
-			<property name="list">TVGuide</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[19163]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">19163</property>
-			<property name="defaultID">19163</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31015)</visible>
-			<onclick>ActivateWindow(TVRecordings)</onclick>
-			<property name="path">ActivateWindow(TVRecordings)</property>
-			<property name="list">TVRecordings</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[19040]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">19040</property>
-			<property name="defaultID">19040</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31015)</visible>
-			<onclick>ActivateWindow(TVTimers)</onclick>
-			<property name="path">ActivateWindow(TVTimers)</property>
-			<property name="list">TVTimers</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[137]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">137</property>
-			<property name="defaultID">137</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31015)</visible>
-			<onclick>ActivateWindow(TVSearch)</onclick>
-			<property name="path">ActivateWindow(TVSearch)</property>
-			<property name="list">TVSearch</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">5</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[7]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/files.png</icon>
 			<thumb />
 			<property name="labelID">7</property>
@@ -371,9 +194,43 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">5</property>
+			<property name="mainmenuid">8</property>
+			<label>$LOCALIZE[20077]</label>
+			<label2>Settings</label2>
+			<icon>special://skin/extras/icons/year.png</icon>
+			<thumb />
+			<property name="labelID">20077</property>
+			<property name="defaultID">20077</property>
+			<property name="translatedPath">ActivateWindow(SkinSettings)</property>
+			<onclick>ActivateWindow(SkinSettings)</onclick>
+			<property name="path">ActivateWindow(SkinSettings)</property>
+			<property name="list">SkinSettings</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<property name="group">settings</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">8</property>
+			<label>$LOCALIZE[24001]</label>
+			<label2>Settings</label2>
+			<icon>special://skin/extras/icons/addons.png</icon>
+			<thumb />
+			<property name="labelID">24001</property>
+			<property name="defaultID">24001</property>
+			<property name="translatedPath">ActivateWindow(AddonBrowser)</property>
+			<onclick>ActivateWindow(AddonBrowser)</onclick>
+			<property name="path">ActivateWindow(AddonBrowser)</property>
+			<property name="list">AddonBrowser</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<property name="group">settings</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[13200]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
 			<thumb />
 			<property name="labelID">13200</property>
@@ -385,11 +242,11 @@
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">5</property>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[10007]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/sysinfo.png</icon>
 			<thumb />
 			<property name="labelID">10007</property>
@@ -401,11 +258,11 @@
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">5</property>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[14111]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
 			<thumb />
 			<property name="labelID">14111</property>
@@ -420,7 +277,7 @@
 		</item>
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[20342]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/film.png</icon>
@@ -438,7 +295,7 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[31100]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recentlyadded.png</icon>
@@ -456,7 +313,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[31101]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recent.png</icon>
@@ -473,7 +330,7 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[31102]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/signpost.png</icon>
@@ -490,7 +347,7 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[137]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/search.png</icon>
@@ -507,7 +364,7 @@
 		</item>
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[135]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/genre.png</icon>
@@ -525,7 +382,7 @@
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[20348]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/director.png</icon>
@@ -543,7 +400,7 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[344]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
@@ -561,7 +418,7 @@
 		</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[20434]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/year.png</icon>
@@ -579,7 +436,7 @@
 		</item>
 		<item id="10">
 			<property name="id">$NUMBER[10]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[136]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/playlist.png</icon>
@@ -596,7 +453,7 @@
 		</item>
 		<item id="11">
 			<property name="id">$NUMBER[11]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[1214]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/files.png</icon>
@@ -613,7 +470,7 @@
 		</item>
 		<item id="12">
 			<property name="id">$NUMBER[12]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[24001]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/addons.png</icon>
@@ -630,7 +487,7 @@
 		</item>
 		<item id="13">
 			<property name="id">$NUMBER[13]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[653]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/update.png</icon>
@@ -647,7 +504,7 @@
 		</item>
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20343]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/tv.png</icon>
@@ -665,7 +522,7 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[31100]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recentlyadded.png</icon>
@@ -683,7 +540,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[31101]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recent.png</icon>
@@ -700,7 +557,7 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[31102]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/signpost.png</icon>
@@ -717,7 +574,7 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[137]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/search.png</icon>
@@ -734,7 +591,7 @@
 		</item>
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[135]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/genre.png</icon>
@@ -752,7 +609,7 @@
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20388]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/director.png</icon>
@@ -770,7 +627,7 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[344]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
@@ -788,7 +645,7 @@
 		</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[652]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/year.png</icon>
@@ -806,7 +663,7 @@
 		</item>
 		<item id="10">
 			<property name="id">$NUMBER[10]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[136]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/playlist.png</icon>
@@ -823,7 +680,7 @@
 		</item>
 		<item id="11">
 			<property name="id">$NUMBER[11]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[1214]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/files.png</icon>
@@ -840,7 +697,7 @@
 		</item>
 		<item id="12">
 			<property name="id">$NUMBER[12]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[24001]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/addons.png</icon>
@@ -857,7 +714,7 @@
 		</item>
 		<item id="13">
 			<property name="id">$NUMBER[13]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[653]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/update.png</icon>
@@ -874,7 +731,240 @@
 		</item>
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">12</property>
+			<label>80's kids</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.ts80k</property>
+			<property name="defaultID">plugin.video.ts80k</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.ts80k",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.ts80k",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.ts80k",return)</property>
+			<property name="list">plugin://plugin.video.ts80k</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">12</property>
+			<label>Bob's Kids</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">bobskids</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0",return)</property>
+			<property name="list">plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">12</property>
+			<label>Bubbles Kids</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>image://%2fhome%2fiainstott%2f.kodi%2faddons%2fscript.bubbles.resources%2fresources%2fmedia%2ficons%2fwhite%2flarge%2fkids.png/</thumb>
+			<property name="labelID">bubbleskids</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1",return)</property>
+			<property name="list">plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">12</property>
+			<label>Cartoons8</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.cartoons8</property>
+			<property name="defaultID">plugin.video.cartoons8</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.cartoons8",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.cartoons8",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.cartoons8",return)</property>
+			<property name="list">plugin://plugin.video.cartoons8</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<property name="mainmenuid">12</property>
+			<label>CartoonsOn</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.cartoonson</property>
+			<property name="defaultID">plugin.video.cartoonson</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.cartoonson",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.cartoonson",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.cartoonson",return)</property>
+			<property name="list">plugin://plugin.video.cartoonson</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">12</property>
+			<label>Kid's Movies</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.kmER</property>
+			<property name="defaultID">plugin.video.kmER</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.kmER",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.kmER",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.kmER",return)</property>
+			<property name="list">plugin://plugin.video.kmER</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<property name="mainmenuid">12</property>
+			<label>Kiddie Cartoons</label>
+			<label2>Custom item</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.kiddiecartoons</property>
+			<property name="defaultID" />
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.kiddiecartoons",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.kiddiecartoons",return)</property>
+			<property name="list">plugin://plugin.video.kiddiecartoons</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<property name="mainmenuid">12</property>
+			<label>Kids Tube</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.kids-tube</property>
+			<property name="defaultID">plugin.video.kids-tube</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.kids-tube",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.kids-tube",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.kids-tube",return)</property>
+			<property name="list">plugin://plugin.video.kids-tube</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
+			<property name="mainmenuid">12</property>
+			<label>Toddler World TV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.toddlerworldtv</property>
+			<property name="defaultID">plugin.video.toddlerworldtv</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.toddlerworldtv",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.toddlerworldtv",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.toddlerworldtv",return)</property>
+			<property name="list">plugin://plugin.video.toddlerworldtv</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="10">
+			<property name="id">$NUMBER[10]</property>
+			<property name="mainmenuid">12</property>
+			<label>ToonMania</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.toonmania</property>
+			<property name="defaultID">plugin.video.toonmania</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.toonmania",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.toonmania",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.toonmania",return)</property>
+			<property name="list">plugin://plugin.video.toonmania</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">13</property>
+			<label>UK Sports</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">uksports</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D",return)</property>
+			<property name="list">plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1105)</visible>
+			<property name="group">x1105</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">13</property>
+			<label>World Sports</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">worldsports</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D",return)</property>
+			<property name="list">plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1105)</visible>
+			<property name="group">x1105</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">13</property>
+			<label>3PM and PPV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">3pmandppv</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=",return)</property>
+			<property name="list">plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),x1105)</visible>
+			<property name="group">x1105</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[31171]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -891,7 +981,7 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13012]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -909,7 +999,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13016]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -927,7 +1017,7 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13011]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -945,7 +1035,7 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13010]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -963,7 +1053,7 @@
 		</item>
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13013]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -981,7 +1071,7 @@
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20126]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -1000,7 +1090,7 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20046]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -1018,7 +1108,7 @@
 		</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13017]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -1036,7 +1126,7 @@
 		</item>
 		<item id="10">
 			<property name="id">$NUMBER[10]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13018]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -1054,7 +1144,7 @@
 		</item>
 		<item id="11">
 			<property name="id">$NUMBER[11]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20150]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -1072,7 +1162,7 @@
 		</item>
 		<item id="12">
 			<property name="id">$NUMBER[12]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20151]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -1090,7 +1180,7 @@
 		</item>
 		<item id="13">
 			<property name="id">$NUMBER[13]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[5]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -1106,523 +1196,41 @@
 			<property name="isSubmenu">True</property>
 		</item>
 	</include>
-	<include name="skinshortcuts-group-num-20342">
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[20386]</label>
-			<label2>$ADDON[script.skinshortcuts 32014]</label2>
-			<icon>special://skin/extras/icons/recentlyadded.png</icon>
-			<thumb />
-			<property name="labelID">20386</property>
-			<property name="defaultID">20386</property>
-			<onclick>ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)</property>
-			<property name="list">videodb://recentlyaddedmovies/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[20434]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/sets.png</icon>
-			<thumb />
-			<property name="labelID">20434</property>
-			<property name="defaultID">20434</property>
-			<visible>Library.HasContent(MovieSets)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/sets/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/sets/,return)</property>
-			<property name="list">videodb://movies/sets/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[369]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/film.png</icon>
-			<thumb />
-			<property name="labelID">369</property>
-			<property name="defaultID">369</property>
-			<visible>Library.HasContent(Movies)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/titles/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/titles/,return)</property>
-			<property name="list">videodb://movies/titles/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[135]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/genre.png</icon>
-			<thumb />
-			<property name="labelID">135</property>
-			<property name="defaultID">135</property>
-			<visible>Library.HasContent(Movies)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/genres/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/genres/,return)</property>
-			<property name="list">videodb://movies/genres/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[562]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/year.png</icon>
-			<thumb />
-			<property name="labelID">562</property>
-			<property name="defaultID">562</property>
-			<visible>Library.HasContent(Movies)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/years/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/years/,return)</property>
-			<property name="list">videodb://movies/years/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[344]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/artist.png</icon>
-			<thumb />
-			<property name="labelID">344</property>
-			<property name="defaultID">344</property>
-			<visible>Library.HasContent(Movies)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/actors/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/actors/,return)</property>
-			<property name="list">videodb://movies/actors/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
+	<include name="skinshortcuts-group-movies">
+		<description>No items</description>
 	</include>
-	<include name="skinshortcuts-group-alt-num-20342">
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[20386]</label>
-			<label2>$ADDON[script.skinshortcuts 32014]</label2>
-			<icon>special://skin/extras/icons/recentlyadded.png</icon>
-			<thumb />
-			<property name="labelID">20386</property>
-			<property name="defaultID">20386</property>
-			<onclick>ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://recentlyaddedmovies/,return)</property>
-			<property name="list">videodb://recentlyaddedmovies/</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-20342)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[20434]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/sets.png</icon>
-			<thumb />
-			<property name="labelID">20434</property>
-			<property name="defaultID">20434</property>
-			<visible>[Library.HasContent(MovieSets)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/sets/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/sets/,return)</property>
-			<property name="list">videodb://movies/sets/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[369]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/film.png</icon>
-			<thumb />
-			<property name="labelID">369</property>
-			<property name="defaultID">369</property>
-			<visible>[Library.HasContent(Movies)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/titles/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/titles/,return)</property>
-			<property name="list">videodb://movies/titles/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[135]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/genre.png</icon>
-			<thumb />
-			<property name="labelID">135</property>
-			<property name="defaultID">135</property>
-			<visible>[Library.HasContent(Movies)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/genres/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/genres/,return)</property>
-			<property name="list">videodb://movies/genres/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[562]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/year.png</icon>
-			<thumb />
-			<property name="labelID">562</property>
-			<property name="defaultID">562</property>
-			<visible>[Library.HasContent(Movies)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/years/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/years/,return)</property>
-			<property name="list">videodb://movies/years/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[344]</label>
-			<label2>$LOCALIZE[342]</label2>
-			<icon>special://skin/extras/icons/artist.png</icon>
-			<thumb />
-			<property name="labelID">344</property>
-			<property name="defaultID">344</property>
-			<visible>[Library.HasContent(Movies)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-20342)</visible>
-			<onclick>ActivateWindow(Videos,videodb://movies/actors/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://movies/actors/,return)</property>
-			<property name="list">videodb://movies/actors/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">20342</property>
-			<property name="isSubmenu">True</property>
-		</item>
+	<include name="skinshortcuts-group-alt-movies">
+		<description>No items</description>
 	</include>
 	<include name="skinshortcuts-group-tvshows">
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[20387]</label>
-			<label2>$ADDON[script.skinshortcuts 32014]</label2>
-			<icon>special://skin/extras/icons/recentlyadded.png</icon>
-			<thumb />
-			<property name="labelID">20387</property>
-			<property name="defaultID">20387</property>
-			<onclick>ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</property>
-			<property name="list">videodb://recentlyaddedepisodes/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[369]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">369</property>
-			<property name="defaultID">369</property>
-			<visible>Library.HasContent(TVShows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/titles/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/titles/,return)</property>
-			<property name="list">videodb://tvshows/titles/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[135]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/genre.png</icon>
-			<thumb />
-			<property name="labelID">135</property>
-			<property name="defaultID">135</property>
-			<visible>Library.HasContent(TVShows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/genres/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/genres/,return)</property>
-			<property name="list">videodb://tvshows/genres/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[562]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/year.png</icon>
-			<thumb />
-			<property name="labelID">562</property>
-			<property name="defaultID">562</property>
-			<visible>Library.HasContent(TVShows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/years/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/years/,return)</property>
-			<property name="list">videodb://tvshows/years/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[344]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/artist.png</icon>
-			<thumb />
-			<property name="labelID">344</property>
-			<property name="defaultID">344</property>
-			<visible>Library.HasContent(TVShows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/actors/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/actors/,return)</property>
-			<property name="list">videodb://tvshows/actors/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
+		<description>No items</description>
 	</include>
 	<include name="skinshortcuts-group-alt-tvshows">
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[20387]</label>
-			<label2>$ADDON[script.skinshortcuts 32014]</label2>
-			<icon>special://skin/extras/icons/recentlyadded.png</icon>
-			<thumb />
-			<property name="labelID">20387</property>
-			<property name="defaultID">20387</property>
-			<onclick>ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://recentlyaddedepisodes/,return)</property>
-			<property name="list">videodb://recentlyaddedepisodes/</property>
-			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),tvshows)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[369]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">369</property>
-			<property name="defaultID">369</property>
-			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Window(10000).Property(submenuVisibility),tvshows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/titles/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/titles/,return)</property>
-			<property name="list">videodb://tvshows/titles/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[135]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/genre.png</icon>
-			<thumb />
-			<property name="labelID">135</property>
-			<property name="defaultID">135</property>
-			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Window(10000).Property(submenuVisibility),tvshows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/genres/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/genres/,return)</property>
-			<property name="list">videodb://tvshows/genres/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[562]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/year.png</icon>
-			<thumb />
-			<property name="labelID">562</property>
-			<property name="defaultID">562</property>
-			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Window(10000).Property(submenuVisibility),tvshows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/years/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/years/,return)</property>
-			<property name="list">videodb://tvshows/years/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[344]</label>
-			<label2>$LOCALIZE[20343]</label2>
-			<icon>special://skin/extras/icons/artist.png</icon>
-			<thumb />
-			<property name="labelID">344</property>
-			<property name="defaultID">344</property>
-			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Window(10000).Property(submenuVisibility),tvshows)</visible>
-			<onclick>ActivateWindow(Videos,videodb://tvshows/actors/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://tvshows/actors/,return)</property>
-			<property name="list">videodb://tvshows/actors/</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">tvshows</property>
-			<property name="isSubmenu">True</property>
-		</item>
+		<description>No items</description>
 	</include>
-	<include name="skinshortcuts-group-num-31015">
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[22020]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">22020</property>
-			<property name="defaultID">22020</property>
-			<visible>System.HasPVRAddon</visible>
-			<onclick>ActivateWindow(TVGuide)</onclick>
-			<property name="path">ActivateWindow(TVGuide)</property>
-			<property name="list">TVGuide</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[19163]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">19163</property>
-			<property name="defaultID">19163</property>
-			<visible>System.HasPVRAddon</visible>
-			<onclick>ActivateWindow(TVRecordings)</onclick>
-			<property name="path">ActivateWindow(TVRecordings)</property>
-			<property name="list">TVRecordings</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[19040]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">19040</property>
-			<property name="defaultID">19040</property>
-			<visible>System.HasPVRAddon</visible>
-			<onclick>ActivateWindow(TVTimers)</onclick>
-			<property name="path">ActivateWindow(TVTimers)</property>
-			<property name="list">TVTimers</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[137]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">137</property>
-			<property name="defaultID">137</property>
-			<visible>System.HasPVRAddon</visible>
-			<onclick>ActivateWindow(TVSearch)</onclick>
-			<property name="path">ActivateWindow(TVSearch)</property>
-			<property name="list">TVSearch</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
+	<include name="skinshortcuts-group-livetv">
+		<description>No items</description>
 	</include>
-	<include name="skinshortcuts-group-alt-num-31015">
-		<item id="1">
-			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[22020]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">22020</property>
-			<property name="defaultID">22020</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),num-31015)</visible>
-			<onclick>ActivateWindow(TVGuide)</onclick>
-			<property name="path">ActivateWindow(TVGuide)</property>
-			<property name="list">TVGuide</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[19163]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">19163</property>
-			<property name="defaultID">19163</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),num-31015)</visible>
-			<onclick>ActivateWindow(TVRecordings)</onclick>
-			<property name="path">ActivateWindow(TVRecordings)</property>
-			<property name="list">TVRecordings</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[19040]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">19040</property>
-			<property name="defaultID">19040</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),num-31015)</visible>
-			<onclick>ActivateWindow(TVTimers)</onclick>
-			<property name="path">ActivateWindow(TVTimers)</property>
-			<property name="list">TVTimers</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[137]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>special://skin/extras/icons/tv.png</icon>
-			<thumb />
-			<property name="labelID">137</property>
-			<property name="defaultID">137</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Window(10000).Property(submenuVisibility),num-31015)</visible>
-			<onclick>ActivateWindow(TVSearch)</onclick>
-			<property name="path">ActivateWindow(TVSearch)</property>
-			<property name="list">TVSearch</property>
-			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
-			<property name="isSubmenu">True</property>
-		</item>
+	<include name="skinshortcuts-group-alt-livetv">
+		<description>No items</description>
+	</include>
+	<include name="skinshortcuts-group-kidszone">
+		<description>No items</description>
+	</include>
+	<include name="skinshortcuts-group-alt-kidszone">
+		<description>No items</description>
+	</include>
+	<include name="skinshortcuts-group-sports">
+		<description>No items</description>
+	</include>
+	<include name="skinshortcuts-group-alt-sports">
+		<description>No items</description>
+	</include>
+	<include name="skinshortcuts-group-documentaries">
+		<description>No items</description>
+	</include>
+	<include name="skinshortcuts-group-alt-documentaries">
+		<description>No items</description>
 	</include>
 	<include name="skinshortcuts-group-num-0">
 		<description>No items</description>
@@ -1633,9 +1241,9 @@
 	<include name="skinshortcuts-group-settings">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">5</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[7]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/files.png</icon>
 			<thumb />
 			<property name="labelID">7</property>
@@ -1649,9 +1257,43 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">5</property>
+			<property name="mainmenuid">8</property>
+			<label>$LOCALIZE[20077]</label>
+			<label2>Settings</label2>
+			<icon>special://skin/extras/icons/year.png</icon>
+			<thumb />
+			<property name="labelID">20077</property>
+			<property name="defaultID">20077</property>
+			<property name="translatedPath">ActivateWindow(SkinSettings)</property>
+			<onclick>ActivateWindow(SkinSettings)</onclick>
+			<property name="path">ActivateWindow(SkinSettings)</property>
+			<property name="list">SkinSettings</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">settings</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">8</property>
+			<label>$LOCALIZE[24001]</label>
+			<label2>Settings</label2>
+			<icon>special://skin/extras/icons/addons.png</icon>
+			<thumb />
+			<property name="labelID">24001</property>
+			<property name="defaultID">24001</property>
+			<property name="translatedPath">ActivateWindow(AddonBrowser)</property>
+			<onclick>ActivateWindow(AddonBrowser)</onclick>
+			<property name="path">ActivateWindow(AddonBrowser)</property>
+			<property name="list">AddonBrowser</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">settings</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[13200]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
 			<thumb />
 			<property name="labelID">13200</property>
@@ -1663,11 +1305,11 @@
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">5</property>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[10007]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/sysinfo.png</icon>
 			<thumb />
 			<property name="labelID">10007</property>
@@ -1679,11 +1321,11 @@
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">5</property>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[14111]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
 			<thumb />
 			<property name="labelID">14111</property>
@@ -1700,9 +1342,9 @@
 	<include name="skinshortcuts-group-alt-settings">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">5</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[7]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/files.png</icon>
 			<thumb />
 			<property name="labelID">7</property>
@@ -1716,9 +1358,43 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">5</property>
+			<property name="mainmenuid">8</property>
+			<label>$LOCALIZE[20077]</label>
+			<label2>Settings</label2>
+			<icon>special://skin/extras/icons/year.png</icon>
+			<thumb />
+			<property name="labelID">20077</property>
+			<property name="defaultID">20077</property>
+			<property name="translatedPath">ActivateWindow(SkinSettings)</property>
+			<onclick>ActivateWindow(SkinSettings)</onclick>
+			<property name="path">ActivateWindow(SkinSettings)</property>
+			<property name="list">SkinSettings</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),settings)</visible>
+			<property name="group">settings</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">8</property>
+			<label>$LOCALIZE[24001]</label>
+			<label2>Settings</label2>
+			<icon>special://skin/extras/icons/addons.png</icon>
+			<thumb />
+			<property name="labelID">24001</property>
+			<property name="defaultID">24001</property>
+			<property name="translatedPath">ActivateWindow(AddonBrowser)</property>
+			<onclick>ActivateWindow(AddonBrowser)</onclick>
+			<property name="path">ActivateWindow(AddonBrowser)</property>
+			<property name="list">AddonBrowser</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),settings)</visible>
+			<property name="group">settings</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[13200]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
 			<thumb />
 			<property name="labelID">13200</property>
@@ -1730,11 +1406,11 @@
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">5</property>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[10007]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/sysinfo.png</icon>
 			<thumb />
 			<property name="labelID">10007</property>
@@ -1746,11 +1422,11 @@
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">5</property>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">8</property>
 			<label>$LOCALIZE[14111]</label>
-			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<label2>Common menu item</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
 			<thumb />
 			<property name="labelID">14111</property>
@@ -1767,7 +1443,7 @@
 	<include name="skinshortcuts-group-x1101">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[20342]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/film.png</icon>
@@ -1785,7 +1461,7 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[31100]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recentlyadded.png</icon>
@@ -1803,7 +1479,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[31101]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recent.png</icon>
@@ -1820,7 +1496,7 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[31102]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/signpost.png</icon>
@@ -1837,7 +1513,7 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[137]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/search.png</icon>
@@ -1854,7 +1530,7 @@
 		</item>
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[135]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/genre.png</icon>
@@ -1872,7 +1548,7 @@
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[20348]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/director.png</icon>
@@ -1890,7 +1566,7 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[344]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
@@ -1908,7 +1584,7 @@
 		</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[20434]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/year.png</icon>
@@ -1926,7 +1602,7 @@
 		</item>
 		<item id="10">
 			<property name="id">$NUMBER[10]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[136]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/playlist.png</icon>
@@ -1943,7 +1619,7 @@
 		</item>
 		<item id="11">
 			<property name="id">$NUMBER[11]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[1214]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/files.png</icon>
@@ -1960,7 +1636,7 @@
 		</item>
 		<item id="12">
 			<property name="id">$NUMBER[12]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[24001]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/addons.png</icon>
@@ -1977,7 +1653,7 @@
 		</item>
 		<item id="13">
 			<property name="id">$NUMBER[13]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[653]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/update.png</icon>
@@ -1996,7 +1672,7 @@
 	<include name="skinshortcuts-group-alt-x1101">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[20342]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/film.png</icon>
@@ -2014,7 +1690,7 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[31100]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recentlyadded.png</icon>
@@ -2032,7 +1708,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[31101]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recent.png</icon>
@@ -2049,7 +1725,7 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[31102]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/signpost.png</icon>
@@ -2066,7 +1742,7 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[137]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/search.png</icon>
@@ -2083,7 +1759,7 @@
 		</item>
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[135]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/genre.png</icon>
@@ -2101,7 +1777,7 @@
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[20348]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/director.png</icon>
@@ -2119,7 +1795,7 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[344]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
@@ -2137,7 +1813,7 @@
 		</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[20434]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/year.png</icon>
@@ -2155,7 +1831,7 @@
 		</item>
 		<item id="10">
 			<property name="id">$NUMBER[10]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[136]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/playlist.png</icon>
@@ -2172,7 +1848,7 @@
 		</item>
 		<item id="11">
 			<property name="id">$NUMBER[11]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[1214]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/files.png</icon>
@@ -2189,7 +1865,7 @@
 		</item>
 		<item id="12">
 			<property name="id">$NUMBER[12]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[24001]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/addons.png</icon>
@@ -2206,7 +1882,7 @@
 		</item>
 		<item id="13">
 			<property name="id">$NUMBER[13]</property>
-			<property name="mainmenuid">6</property>
+			<property name="mainmenuid">9</property>
 			<label>$LOCALIZE[653]</label>
 			<label2>Movie Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/update.png</icon>
@@ -2225,7 +1901,7 @@
 	<include name="skinshortcuts-group-x1102">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20343]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/tv.png</icon>
@@ -2243,7 +1919,7 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[31100]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recentlyadded.png</icon>
@@ -2261,7 +1937,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[31101]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recent.png</icon>
@@ -2278,7 +1954,7 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[31102]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/signpost.png</icon>
@@ -2295,7 +1971,7 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[137]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/search.png</icon>
@@ -2312,7 +1988,7 @@
 		</item>
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[135]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/genre.png</icon>
@@ -2330,7 +2006,7 @@
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20388]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/director.png</icon>
@@ -2348,7 +2024,7 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[344]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
@@ -2366,7 +2042,7 @@
 		</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[652]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/year.png</icon>
@@ -2384,7 +2060,7 @@
 		</item>
 		<item id="10">
 			<property name="id">$NUMBER[10]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[136]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/playlist.png</icon>
@@ -2401,7 +2077,7 @@
 		</item>
 		<item id="11">
 			<property name="id">$NUMBER[11]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[1214]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/files.png</icon>
@@ -2418,7 +2094,7 @@
 		</item>
 		<item id="12">
 			<property name="id">$NUMBER[12]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[24001]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/addons.png</icon>
@@ -2435,7 +2111,7 @@
 		</item>
 		<item id="13">
 			<property name="id">$NUMBER[13]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[653]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/update.png</icon>
@@ -2454,7 +2130,7 @@
 	<include name="skinshortcuts-group-alt-x1102">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20343]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/tv.png</icon>
@@ -2472,7 +2148,7 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[31100]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recentlyadded.png</icon>
@@ -2490,7 +2166,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[31101]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/recent.png</icon>
@@ -2507,7 +2183,7 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[31102]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/signpost.png</icon>
@@ -2524,7 +2200,7 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[137]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/search.png</icon>
@@ -2541,7 +2217,7 @@
 		</item>
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[135]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/genre.png</icon>
@@ -2559,7 +2235,7 @@
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[20388]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/director.png</icon>
@@ -2577,7 +2253,7 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[344]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/actor.png</icon>
@@ -2595,7 +2271,7 @@
 		</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[652]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/year.png</icon>
@@ -2613,7 +2289,7 @@
 		</item>
 		<item id="10">
 			<property name="id">$NUMBER[10]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[136]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/playlist.png</icon>
@@ -2630,7 +2306,7 @@
 		</item>
 		<item id="11">
 			<property name="id">$NUMBER[11]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[1214]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/files.png</icon>
@@ -2647,7 +2323,7 @@
 		</item>
 		<item id="12">
 			<property name="id">$NUMBER[12]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[24001]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/addons.png</icon>
@@ -2664,7 +2340,7 @@
 		</item>
 		<item id="13">
 			<property name="id">$NUMBER[13]</property>
-			<property name="mainmenuid">7</property>
+			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[653]</label>
 			<label2>Episode Hub Shortcut</label2>
 			<icon>special://skin/extras/icons/update.png</icon>
@@ -2687,16 +2363,478 @@
 		<description>No items</description>
 	</include>
 	<include name="skinshortcuts-group-x1104">
-		<description>No items</description>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">12</property>
+			<label>80's kids</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.ts80k</property>
+			<property name="defaultID">plugin.video.ts80k</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.ts80k",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.ts80k",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.ts80k",return)</property>
+			<property name="list">plugin://plugin.video.ts80k</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">12</property>
+			<label>Bob's Kids</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">bobskids</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0",return)</property>
+			<property name="list">plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">12</property>
+			<label>Bubbles Kids</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>image://%2fhome%2fiainstott%2f.kodi%2faddons%2fscript.bubbles.resources%2fresources%2fmedia%2ficons%2fwhite%2flarge%2fkids.png/</thumb>
+			<property name="labelID">bubbleskids</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1",return)</property>
+			<property name="list">plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">12</property>
+			<label>Cartoons8</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.cartoons8</property>
+			<property name="defaultID">plugin.video.cartoons8</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.cartoons8",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.cartoons8",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.cartoons8",return)</property>
+			<property name="list">plugin://plugin.video.cartoons8</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<property name="mainmenuid">12</property>
+			<label>CartoonsOn</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.cartoonson</property>
+			<property name="defaultID">plugin.video.cartoonson</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.cartoonson",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.cartoonson",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.cartoonson",return)</property>
+			<property name="list">plugin://plugin.video.cartoonson</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">12</property>
+			<label>Kid's Movies</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.kmER</property>
+			<property name="defaultID">plugin.video.kmER</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.kmER",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.kmER",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.kmER",return)</property>
+			<property name="list">plugin://plugin.video.kmER</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<property name="mainmenuid">12</property>
+			<label>Kiddie Cartoons</label>
+			<label2>Custom item</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.kiddiecartoons</property>
+			<property name="defaultID" />
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.kiddiecartoons",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.kiddiecartoons",return)</property>
+			<property name="list">plugin://plugin.video.kiddiecartoons</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<property name="mainmenuid">12</property>
+			<label>Kids Tube</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.kids-tube</property>
+			<property name="defaultID">plugin.video.kids-tube</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.kids-tube",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.kids-tube",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.kids-tube",return)</property>
+			<property name="list">plugin://plugin.video.kids-tube</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
+			<property name="mainmenuid">12</property>
+			<label>Toddler World TV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.toddlerworldtv</property>
+			<property name="defaultID">plugin.video.toddlerworldtv</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.toddlerworldtv",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.toddlerworldtv",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.toddlerworldtv",return)</property>
+			<property name="list">plugin://plugin.video.toddlerworldtv</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="10">
+			<property name="id">$NUMBER[10]</property>
+			<property name="mainmenuid">12</property>
+			<label>ToonMania</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.toonmania</property>
+			<property name="defaultID">plugin.video.toonmania</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.toonmania",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.toonmania",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.toonmania",return)</property>
+			<property name="list">plugin://plugin.video.toonmania</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
 	</include>
 	<include name="skinshortcuts-group-alt-x1104">
-		<description>No items</description>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">12</property>
+			<label>80's kids</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.ts80k</property>
+			<property name="defaultID">plugin.video.ts80k</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.ts80k",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.ts80k",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.ts80k",return)</property>
+			<property name="list">plugin://plugin.video.ts80k</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">12</property>
+			<label>Bob's Kids</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">bobskids</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0",return)</property>
+			<property name="list">plugin://plugin.video.bob/?action=directory&amp;url=http%3A%2F%2Fnorestrictions.club%2Fnorestrictions.club%2Fmain%2Fkidsmain.xml&amp;content=0</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">12</property>
+			<label>Bubbles Kids</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>image://%2fhome%2fiainstott%2f.kodi%2faddons%2fscript.bubbles.resources%2fresources%2fmedia%2ficons%2fwhite%2flarge%2fkids.png/</thumb>
+			<property name="labelID">bubbleskids</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1",return)</property>
+			<property name="list">plugin://plugin.video.bubbles/?action=kidsNavigator&amp;kids=1</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">12</property>
+			<label>Cartoons8</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.cartoons8</property>
+			<property name="defaultID">plugin.video.cartoons8</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.cartoons8",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.cartoons8",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.cartoons8",return)</property>
+			<property name="list">plugin://plugin.video.cartoons8</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<property name="mainmenuid">12</property>
+			<label>CartoonsOn</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.cartoonson</property>
+			<property name="defaultID">plugin.video.cartoonson</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.cartoonson",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.cartoonson",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.cartoonson",return)</property>
+			<property name="list">plugin://plugin.video.cartoonson</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">12</property>
+			<label>Kid's Movies</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.kmER</property>
+			<property name="defaultID">plugin.video.kmER</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.kmER",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.kmER",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.kmER",return)</property>
+			<property name="list">plugin://plugin.video.kmER</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<property name="mainmenuid">12</property>
+			<label>Kiddie Cartoons</label>
+			<label2>Custom item</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.kiddiecartoons</property>
+			<property name="defaultID" />
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.kiddiecartoons",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.kiddiecartoons",return)</property>
+			<property name="list">plugin://plugin.video.kiddiecartoons</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<property name="mainmenuid">12</property>
+			<label>Kids Tube</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.kids-tube</property>
+			<property name="defaultID">plugin.video.kids-tube</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.kids-tube",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.kids-tube",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.kids-tube",return)</property>
+			<property name="list">plugin://plugin.video.kids-tube</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
+			<property name="mainmenuid">12</property>
+			<label>Toddler World TV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.toddlerworldtv</property>
+			<property name="defaultID">plugin.video.toddlerworldtv</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.toddlerworldtv",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.toddlerworldtv",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.toddlerworldtv",return)</property>
+			<property name="list">plugin://plugin.video.toddlerworldtv</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="10">
+			<property name="id">$NUMBER[10]</property>
+			<property name="mainmenuid">12</property>
+			<label>ToonMania</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/kids.png</thumb>
+			<property name="labelID">plugin.video.toonmania</property>
+			<property name="defaultID">plugin.video.toonmania</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.toonmania",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.toonmania",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.toonmania",return)</property>
+			<property name="list">plugin://plugin.video.toonmania</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1104)</visible>
+			<property name="group">x1104</property>
+			<property name="isSubmenu">True</property>
+		</item>
 	</include>
 	<include name="skinshortcuts-group-x1105">
-		<description>No items</description>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">13</property>
+			<label>UK Sports</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">uksports</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D",return)</property>
+			<property name="list">plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1105</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">13</property>
+			<label>World Sports</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">worldsports</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D",return)</property>
+			<property name="list">plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1105</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">13</property>
+			<label>3PM and PPV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">3pmandppv</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=",return)</property>
+			<property name="list">plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">x1105</property>
+			<property name="isSubmenu">True</property>
+		</item>
 	</include>
 	<include name="skinshortcuts-group-alt-x1105">
-		<description>No items</description>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">13</property>
+			<label>UK Sports</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">uksports</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D",return)</property>
+			<property name="list">plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=0&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BSports%5D%5B%2FCOLOR%5D</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1105)</visible>
+			<property name="group">x1105</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">13</property>
+			<label>World Sports</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">worldsports</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D",return)</property>
+			<property name="list">plugin://plugin.video.playlistLoader/?logos=&amp;move=0&amp;mode=2&amp;index=1&amp;url=http%3A%2F%2Fiaincstott.co.uk%2FKodiRepo%2FIPTVLists%2FWorldSports.m3u&amp;iconimage=&amp;cache=0&amp;name=%5BCOLOR+blue%5D%5BWorld+Sports%5D%5B%2FCOLOR%5D</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1105)</visible>
+			<property name="group">x1105</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">13</property>
+			<label>3PM and PPV</label>
+			<label2>Video Add-On</label2>
+			<icon>special://skin/extras/icons/addon.png</icon>
+			<thumb>special://skin/extras/icons/awards.png</thumb>
+			<property name="labelID">3pmandppv</property>
+			<property name="defaultID" />
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=",return)</property>
+			<onclick condition="String.StartsWith(Container(9501).ListItem.Property(path),ActivateWindow) + !String.Contains(Container(9501).ListItem.Property(path),DialogFavourites) + !String.Contains(Container(9501).ListItem.Property(path),DialogButtonMenu) + !String.Contains(Container(9501).ListItem.Property(path),shutdownmenu) + !String.Contains(Container(9501).ListItem.Property(path),favourites)">SetProperty(WindowBaseReturn,$INFO[Container(9501).ListItem.Property(list)],home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=",return)</property>
+			<property name="list">plugin://plugin.video.megaiptv/?action=I11II1i&amp;title=VIP+%7C+Sports+%26+3PM+%26+PPV&amp;url=http%3A%2F%2Fuk-mega-iptv.is-found.org%3A25461%2Fenigma2.php%3Fusername%3DIainStott2%26password%3DQAcEiPTJsK%26type%3Dget_live_streams%26cat_id%3D79&amp;thumbnail=%2Fhome%2Fiainstott%2F.kodi%2Faddons%2Fplugin.video.megaiptv%2Fresources%2Fart%2Flogo.png&amp;plot=&amp;extra=&amp;page=</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),x1105)</visible>
+			<property name="group">x1105</property>
+			<property name="isSubmenu">True</property>
+		</item>
 	</include>
 	<include name="skinshortcuts-group-x1106">
 		<description>No items</description>
@@ -2725,7 +2863,7 @@
 	<include name="skinshortcuts-group-powermenu">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[31171]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2742,7 +2880,7 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13012]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2760,7 +2898,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13016]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2778,7 +2916,7 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13011]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2796,7 +2934,7 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13010]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2814,7 +2952,7 @@
 		</item>
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13013]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2832,7 +2970,7 @@
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20126]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2851,7 +2989,7 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20046]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2869,7 +3007,7 @@
 		</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13017]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2887,7 +3025,7 @@
 		</item>
 		<item id="10">
 			<property name="id">$NUMBER[10]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13018]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2905,7 +3043,7 @@
 		</item>
 		<item id="11">
 			<property name="id">$NUMBER[11]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20150]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2923,7 +3061,7 @@
 		</item>
 		<item id="12">
 			<property name="id">$NUMBER[12]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20151]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2941,7 +3079,7 @@
 		</item>
 		<item id="13">
 			<property name="id">$NUMBER[13]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[5]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2960,7 +3098,7 @@
 	<include name="skinshortcuts-group-alt-powermenu">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[31171]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2977,7 +3115,7 @@
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13012]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -2995,7 +3133,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13016]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3013,7 +3151,7 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13011]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3031,7 +3169,7 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13010]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3049,7 +3187,7 @@
 		</item>
 		<item id="6">
 			<property name="id">$NUMBER[6]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13013]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3067,7 +3205,7 @@
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20126]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3086,7 +3224,7 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20046]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3104,7 +3242,7 @@
 		</item>
 		<item id="9">
 			<property name="id">$NUMBER[9]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13017]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3122,7 +3260,7 @@
 		</item>
 		<item id="10">
 			<property name="id">$NUMBER[10]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[13018]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3140,7 +3278,7 @@
 		</item>
 		<item id="11">
 			<property name="id">$NUMBER[11]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20150]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3158,7 +3296,7 @@
 		</item>
 		<item id="12">
 			<property name="id">$NUMBER[12]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[20151]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3176,7 +3314,7 @@
 		</item>
 		<item id="13">
 			<property name="id">$NUMBER[13]</property>
-			<property name="mainmenuid">15</property>
+			<property name="mainmenuid">18</property>
 			<label>$LOCALIZE[5]</label>
 			<label2>Power Menu Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -3198,7 +3336,7 @@
 	<include name="skinshortcuts-template-submenu-widget-Master user">
 		<control id="9001" type="wraplist">
 			<visible>Integer.IsEqual(Window(Home).Property(MenuFocus),9002) + !String.IsEmpty(Container(9002).ListItem.Property(widgetType))</visible>
-			<visible>[String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342) + String.IsEqual(Container(9002).ListItem.Property(labelID),20386)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342) + String.IsEqual(Container(9002).ListItem.Property(labelID),20434)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342) + String.IsEqual(Container(9002).ListItem.Property(labelID),369)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342) + String.IsEqual(Container(9002).ListItem.Property(labelID),135)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342) + String.IsEqual(Container(9002).ListItem.Property(labelID),562)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342) + String.IsEqual(Container(9002).ListItem.Property(labelID),344)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows) + String.IsEqual(Container(9002).ListItem.Property(labelID),20387)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows) + String.IsEqual(Container(9002).ListItem.Property(labelID),369)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows) + String.IsEqual(Container(9002).ListItem.Property(labelID),135)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows) + String.IsEqual(Container(9002).ListItem.Property(labelID),562)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows) + String.IsEqual(Container(9002).ListItem.Property(labelID),344)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31015) + String.IsEqual(Container(9002).ListItem.Property(labelID),22020)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31015) + String.IsEqual(Container(9002).ListItem.Property(labelID),19163)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31015) + String.IsEqual(Container(9002).ListItem.Property(labelID),19040)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31015) + String.IsEqual(Container(9002).ListItem.Property(labelID),137)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),7)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),13200)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),10007)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),14111)]</visible>
+			<visible>[String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),7)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),20077)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),24001)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),13200)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),10007)] | [String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings) + String.IsEqual(Container(9002).ListItem.Property(labelID),14111)]</visible>
 			<visible>!Player.HasVideo | [Player.HasVideo + !Skin.HasSetting(background.showvideo)]</visible>
 			<orientation>horizontal</orientation>
 			<width>100%</width>
@@ -3225,7 +3363,7 @@
 	<include name="skinshortcuts-template-widget-Master user">
 		<control id="9001" type="wraplist">
 			<visible>!Integer.IsEqual(Window(Home).Property(MenuFocus),9002) | String.IsEmpty(Container(9002).ListItem.Property(widgetType))</visible>
-			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-20342) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-31015) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-0) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),livetv) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),kidszone) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),sports) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),documentaries) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-0) | String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
 			<visible>!Player.HasVideo | [Player.HasVideo + !Skin.HasSetting(background.showvideo)]</visible>
 			<orientation>horizontal</orientation>
 			<width>100%</width>
