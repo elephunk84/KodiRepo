@@ -340,7 +340,7 @@
 
 </addon>
 
-<addon id="plugin.video.playlistLoader" name="Playlist Loader" version="3.0.2" provider-name="Avigdor">
+<addon id="plugin.video.playlistLoader" name="Playlist Loader" version="1.0.17" provider-name="Avigdor">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="repository.xbmc-avigdork" />
