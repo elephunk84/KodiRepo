@@ -131,6 +131,110 @@
 	</extension>
 </addon>
 
+﻿<addon id="plugin.video.exodus" version="3.1.22" name="Exodus" provider-name="Exodus">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.exodus.artwork" version="1.0.5" />
+		<import addon="script.exodus.metadata" version="1.0.0" />
+		<import addon="script.module.urlresolver" version="3.0.33" />
+		<import addon="script.module.metahandler" version="2.9.0" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="exodus.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Exodus</summary>
+		<platform>all</platform>
+		<forum></forum>
+		<website></website>
+		<source></source>
+		<news>Last Version Made From The TVA Guys, If anything changes will be listed here, this version should fix install errors</news>
+	</extension>
+</addon>
+
+<addon id="plugin.video.ccloudtv" name="cCloud TV" version="1.5.5" provider-name="podgod">
+  <requires>
+    <import addon="xbmc.python" version="2.19.0"/>
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.beautifulsoup4" />
+    <import addon="script.module.requests" />
+    <import addon="script.module.httplib2" />
+    <import addon="script.module.youtube.dl" optional="true"/>
+    <import addon="plugin.video.youtube" />
+    <import addon="script.module.urlresolver"  version="3.0.0" optional="true"/>
+	<import addon="script.module.liveresolver"  version="0.1.28"/>
+	<import addon="script.module.addon.common" />
+	<import addon="script.module.simplejson" version="3.3.0"/>
+    <import addon="script.common.plugin.cache" version="2.5.5"/>
+    <import addon="repository.podgod" />
+    <import addon="script.tvaddons.debug.log" optional="true" />
+</requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>All the best from cCloud TV</summary>
+    <description>cCloud is an open source cloud based social IPTV service. It is built by the community for the community, where streaming is just a click away. Just click, play and stream. Yes, it's that simple. Just go to [COLOR blue]http://ccloudtv.org[/COLOR] and enjoy:) Please report any channels that are down here [COLOR blue]http://www.tiny.cc/reportchs[/COLOR] Users can now check servers status which can be found at [COLOR blue]http://ccloudtv.org/status[/COLOR]
+    </description>
+	<license>http://www.gnu.org/licenses/</license>
+    <forum>http://ccloudtv.org/forum</forum>
+    <website>http://ccloudtv.org</website>
+    <website>http://facebook.com/ccloudapp</website>
+    <website>http://twitter.com/ccloudapp</website>
+    <email></email>
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="plugin.video.salts" version="2.0.200" name="Stream All The Sources" provider-name="k3l3vra">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0"/>
+        <import addon="script.module.urlresolver" version="3.0.0"/>
+        <import addon="script.module.myconnpy" version="1.1.6" />
+        <import addon="script.module.tknorris.shared" version="0.0.19"/>
+        <import addon="script.module.six"/>
+        <import addon="script.module.dateutil"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+     <extension point="xbmc.service" library="service.py" start="startup"/>
+    <extension point="xbmc.addon.metadata">
+        <summary>Last Version Made From The TVA Guys</summary>
+        <description>Last Version Made From The TVA Guys, trying to fix the install fail probs some are getting
+        </description>
+        <platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="plugin.video.specto" name="Specto - ... Fork"  version="2017.06.11.1" provider-name="mrknow" >
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="script.module.requests" />
+		<import addon="script.module.metahandler" />
+		<import addon="plugin.video.youtube" optional="true" />
+		<import addon="script.mrknow.urlresolver" />
+		<import addon="script.specto.media" />
+
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Mrknow fork of ...</summary>
+		<description lang="en">Specto - ... Fork. Website http://filmkodi.com . Our suport forum https://github.com/mrknow/filmkodi/issues.</description>
+		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.
+		</disclaimer>
+		<forum>https://github.com/mrknow/filmkodi/issues</forum>
+		<source>http://filmkodi.com/repository/</source>
+		<website>http://filmkodi.com/en/wtyczka-specto-fork-genesis/</website>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <addon id="script.tvguide.fullscreen" name="TV Guide Fullscreen" version="0.0.352" provider-name="primaeval">
     <requires>
         <import addon="xbmc.python" version="2.19.0"/>
@@ -195,6 +299,51 @@
     </extension>
 </addon>
 
+<addon id="plugin.video.bubbles" version="2.0.1" name="Bubbles" provider-name="Bubbles">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+
+		<import addon="script.bubbles.resources" version="2.0.0" />
+		<import addon="script.bubbles.artwork" version="1.4.2" />
+		<import addon="script.bubbles.binaries" version="1.4.2" optional="true" />
+		<import addon="script.bubbles.icons" version="2.0.0" optional="true" />
+		<import addon="script.bubbles.skins" version="1.4.2" optional="true" />
+		<import addon="skin.bubbles.aeon.nox" version="1.1.2" optional="true" />
+
+		<import addon="script.module.urlresolver" version="3.0.29" />
+		<import addon="script.module.metahandler" version="2.9.0" />
+
+		<import addon="plugin.video.quasar" version="0.9.78" optional="true" />
+		<import addon="script.trakt" version="3.1.11" optional="true" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="bubbles.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Stream Movies and Shows</summary>
+		<description lang="en">Stream movies, shows, documentaries, and short films from a variety of sources, such as torrents, usenet, file hosters, and video streaming services.</description>
+		<disclaimer lang="en">Bubbles and its developers are not in any way affiliated with Kodi, TVAddons, OffshoreGit, Premiumize, RealDebrid, EasyNews, or any of the sites and providers used in the addon. Bubbles is and always will be free and open-source. None of its code and resources may be sold or redistributed for any commercial purposes. Bubbles and its developers do not host, create, or distribute any of the content displayed in the addon.</disclaimer>
+		<platform>all</platform>
+		<license>GPL 3.0</license>
+		<website>https://offshoregit.com/bubbles</website>
+		<forum>https://www.tvaddons.ag/forums/bubbles-repository</forum>
+		<assets>
+			<icon>icon.png</icon> <!-- Do not change file name. Required by older Kodi versions. -->
+			<fanart>fanart.jpg</fanart> <!-- Do not change file name. Required by older Kodi versions. -->
+			<screenshot>resources/media/screenshots/screenshot01.jpg</screenshot>
+			<screenshot>resources/media/screenshots/screenshot02.jpg</screenshot>
+			<screenshot>resources/media/screenshots/screenshot03.jpg</screenshot>
+			<screenshot>resources/media/screenshots/screenshot04.jpg</screenshot>
+			<screenshot>resources/media/screenshots/screenshot05.jpg</screenshot>
+			<screenshot>resources/media/screenshots/screenshot06.jpg</screenshot>
+			<screenshot>resources/media/screenshots/screenshot07.jpg</screenshot>
+			<screenshot>resources/media/screenshots/screenshot08.jpg</screenshot>
+			<screenshot>resources/media/screenshots/screenshot09.jpg</screenshot>
+			<screenshot>resources/media/screenshots/screenshot10.jpg</screenshot>
+		</assets>
+	</extension>
+</addon>
+
 <addon id="repository.elephunk84" name="Elephunk84 Repository" version="1.0.11" provider-name="Iain Stott">
     <extension point="xbmc.addon.repository" name="Elephunk84 Repository">
         <info compressed="false">http://iaincstott.co.uk/KodiRepo/Addons/addons.xml</info>
@@ -206,6 +355,36 @@
         <description>Iains KodiRepo. Used For Hosting addons for Kodi Media Center</description>
         <platform>all</platform>
     </extension>
+</addon>
+
+<addon id="plugin.video.bob" name="Bob" version="1.3.15" provider-name="Team Bob">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="plugin.video.youtube" version="5.2.1"/>
+		<import addon="script.module.pyxbmct" version="1.1.4"/>
+		<import addon="script.mrknow.urlresolver" version="2017.03.30.1"/>
+		<import addon="script.module.liveresolver" version="0.1.47"/>
+		<import addon="script.module.beautifulsoup" version="3.2.1"/>
+		<import addon="script.module.requests" version="2.9.1"/>
+		<import addon="script.module.nanscrapers" version="0.5.12"/>
+		<import addon="script.module.addon.common" version="2.0.0"/>
+		<import addon="script.module.xmltodict" version="0.9.0"/>
+		<import addon="script.module.m3u8" version="0.2.10"/>
+		<import addon="script.module.python.koding.aio" version="0.4"/>
+		<!--<import addon="script.video.F4mProxy" version="2.6.4" />-->
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video audio</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Bob</summary>
+		<description lang="en">Bob - Unrestricted. I Am Not A Dev... I Am Bob</description>
+		<platform>all</platform>
+		<forum>http://www.noobsandnerds.com/support/forumdisplay.php?fid=253</forum>
+		<website>www.noobsandnerds.com</website>
+		<video_guide>y0w8zIH4lOY</video_guide>
+		<video_preview>WdKIzajiBBI</video_preview>
+	</extension>
 </addon>
 
 <addon id="script.ftvguide" name="FTV Guide" version="3.0.2" provider-name="rayw1986, bluezed">
@@ -338,5 +517,47 @@
     </menu>
   </extension>
 
+</addon>
+
+<addon id="plugin.video.elysium" version="2017.06.27t" name="Elysium" provider-name="Elysium">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+		<import addon="script.elysium.artwork" version="2017.06.27"/>
+		<import addon="script.module.urlresolver"/>
+		<import addon="script.module.metahandler"/>
+		<import addon="script.module.requests"/>
+		<import addon="script.module.beautifulsoup"/>
+		<import addon="script.module.schism.common"/>
+		<import addon="script.module.futures"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="elysium.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Elysium movies and TV shows</summary>
+		<description lang="en">Watch movies and TV shows in high quality! Please note that this addon is not an official part of the Kodi media player and is therefore not to be mentioned within Kodi's official support channels. This addon has nothing to do with the media player itself, nor its intended use, it is simply a third party plugin which has been added to your system.</description>
+		<disclaimer lang="en">The author does not host any content, nor is he affiliated with any of the content providers.</disclaimer>
+		<platform>all</platform>
+		<news>Fixed error on opening addon</news>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
+
+<addon id="plugin.video.playlistLoader" name="Playlist Loader" version="1.1.7" provider-name="Avigdor">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+	<import addon="repository.xbmc-avigdork" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Playlist Loader</summary>
+    <description lang="en">Playlist Loader</description>
+    <platform>all</platform>
+  </extension>
 </addon>
 </addons>
